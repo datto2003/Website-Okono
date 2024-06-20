@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg" />
+    <link rel="stylesheet" href="./assets/css/ChiTietSanPham.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<style>
+     .modal {
+        display: none; /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 500px;
+        height: 240px;
+        }
+
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+                .position-relative {
+            position: relative;
+        }
+
+    footer{
+    background-color: #DC0D15;
+    color: white;
+    /* display: flex; */
+    height: 80px;
+    justify-content: space-between;
+
+    
+}
+ul, a{
+    text-decoration: none !important;
+}
+li{
+    list-style: none;
+}
+.social{
+    margin-left: 60%;
+
+}
+.foot{
+    width: 100%;
+    height: 2px;
+    margin: 25px 50px 0px 30px;
+    border-top: 1px solid rgb(128, 123, 123);
+}
+
+.error {
+       color: red;
+       font-size: 12px;
+       position: absolute;
+       bottom: -70px;  /*Adjust this value to move the error message up or down */
+       left: 0;
+       width: 100%;
+   }
+
+</style>
+<body style="background-color: #E2E2E2;">
+    <header>
+        <div class="header-item">
+            <div class="logo">
+                <a href="./TrangChu.html"><img src="./assets/img/logo.jpg" alt=""></a>
+            </div>
+            <input type="text" placeholder="Tìm kiếm">
+            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+
+            <div class="actions">
+                <a href="#">
+                    <i class="fa-solid fa-truck"></i>
+                    <p>Đơn hàng</p>
+                </a>
+                <a href="./GioHang.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>Giỏ hàng</p>
+                </a>
+
+            </div>
+            <div class="avatar">
+                <a href="./QuanLyThongTinCaNhan.html">
+                    <img src="./assets/img/avatar.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <nav class="header-menu">
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-carrot"></i>
+                THỰC PHẨM
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-utensils"></i>
+                THỨC ĂN
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-bottle-water"></i>
+                ĐỒ UỐNG
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-pizza-slice"></i>
+                ĐỒ ĂN NHANH
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-kitchen-set"></i>
+                ĐỒ GIA DỤNG
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-gifts"></i>
+                QUÀ LƯU NIỆM
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="path">
+            <i class="home-icon fa-solid fa-house"></i>
+            <a href="./TrangChu.html">Trang chủ</a>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="./DanhMuc.html">Đồ gia dụng</a>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="">Nồi cơm điện KAIMEIDI dung tích lớn 5l giữ nhiệt thông minh có thể hẹn giờ đa năng
+            </a>
+        </div>
+        <section class="products">
+            <div class="products-image">
+                <img src="./assets/img/products/noicom.jfif" alt="Product 1">
+            </div>
+            <div class="products-detail">
+                <div class="product-name">Nồi cơm điện KAIMEIDI dung tích lớn 5l giữ nhiệt thông minh có thể hẹn giờ đa năng</div>
+                <div class="product-price">386.000 đ</div>
+               
+                    <div class="product-des">
+                        <h4>Mô tả sản phẩm</h4>
+                        <div class="product-des-content">
+                            <p>Thông tin sản phẩm:</p>
+                            <p>Dung tích: 5L</p>
+                            <p>Công suất: 900 (W)</p>
+                            <p>Phương pháp điều khiển: Nút thông minh</p>
+                            <p>Điện áp: 220 (V)</p>
+                            <p>Đặc điểm: Nồi nấu cơm, nồi đất sét.</p>
+                            <p>Tần số: 50 (HZ)</p>
+                            <p>Phương pháp tăng nhiệt độ: Gia nhiệt</p>
+                        </div>
+                    </div>
+                <form action="" id="formDatHang">
+                    <div class="product-quantity">
+                        <div class="mt-1 d-flex" >
+                            <h4>Số lượng</h4>
+                            <div style="margin-left: 70px;" class="d-flex align-items-center">
+                                <button type="button" id="decrease"  style="height: 25px; width: 25px; margin-top: 2px;" class="text-center me-2">-</button>
+                                <input type="text" id="soLuong" value="1" min="1" class="text-center" style="width: 70px;">
+                                <button type="button" id="increase" style="height: 25px; width: 25px; margin-top: 2px;" class="text-center ms-2">+</button>
+                            </div>
+                        </div>
+                        <p>17 sản phẩm có sẵn</p>
+                    </div>
+                    <span id="quantityError" class="error" style="margin-left: 910px;"></span>
+
+                    <div class="product-actions">
+                        <button class="button cart" type="button" id="btn_cart" onclick="popupCart()">Thêm vào giỏ hàng</button>
+                        <button type="submit" class="button buy text-light" >Mua ngay</button>
+                    </div>
+                </form>
+
+
+            </div>
+             <!-- Modal Popup -->
+            <div id="successModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header d-flex align-items-center justify-content-between" style="height: 30px;">
+                        <div></div>
+                        <p class="modal-title fw-bold ms-3" style="font-size: 22px;">Thông báo</p>
+                        <span class="close text-dark">&times;</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="/image/success.svg " alt="" style="height: 60px; width: 60px; margin-left: 7px;">
+                        <p style="font-size: 24px; ">Sản phẩm đã được thêm vào giỏ hàng</p>
+                        <button id="okButton" class="mt-3 ms-1 bg-light text-dark fw-bold" style="height: 40px; width: 60px; border-radius: 5px;">OK</button>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer d-flex flex-wrap  align-items-center">
+        <div class="foot"></div>
+        <span class="okono ms-4">© 2024 Okono.</span>
+        <div class="social mt-3">
+            <ul class=" d-flex">
+                <li>
+                    <i class="fa-solid fa-globe mx-2"></i>
+                    <a class="text-white " href="#">Tiếng Việt</a>
+                </li>
+                <li class="mx-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li class="me-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+    <script>
+        function popupCart(){
+        // Show success modal
+            var modal = document.getElementById('successModal');
+            var span = document.getElementsByClassName('close')[0];
+            var okButton = document.getElementById('okButton');
+       
+            modal.style.display = 'block';
+
+            // Close modal on click
+            span.onclick = function() {
+                modal.style.display = 'none';
+                
+            }
+
+            okButton.onclick = function() {
+                modal.style.display = 'none';
+                
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    
+                }
+            }
+        
+        }
+    </script>
+    <script>
+        document.getElementById('increase').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    
+        document.getElementById('decrease').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong');
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+    </script>
+    <script>
+        function validateForm() {
+        // Clear previous error messages
+        
+        // Clear previous error messages
+        var frm = document.forms["formDatHang"];
+        
+        var soLuong = frm["soLuong"].value;
+        var regex = /^\d+$/; 
+        var check = true; // Assume the form is valid unless a check fails
+        
+        
+        // Validate quantity (soLuong)
+        if (soLuong.trim() === "") {
+            document.getElementById("quantityError").innerText = "Số lượng không được bỏ trống";
+            check = false;
+        } else {
+            // Regular expression to match only digits
+            if (!regex.test(soLuong)) {
+                document.getElementById("quantityError").innerText = "Số lượng chỉ được nhập số";
+                check = false;
+            } else {
+                document.getElementById("quantityError").innerText = "";
+            }
+        }
+        if(regex.test(soLuong) && soLuong.trim() !== "")
+        {
+            check = true;
+        }
+        return check;
+ 
+    }
+    document.getElementById('formDatHang').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // Lấy giá trị từ form
+                
+                var soLuong = document.getElementById('soLuong').value;
+                
+                window.location.href = 'DatHang.html';
+            }
+            
+        });
+
+
+      </script>
+</body>
+
+</html>

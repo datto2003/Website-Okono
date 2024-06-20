@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý thông tin cá nhân</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg" />
+    <link rel="stylesheet" href="./assets/css/QuanLyThongTinCaNhan.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<style>
+    .modal {
+       display: none; /* Ẩn modal mặc định */
+       position: fixed;
+       z-index: 1;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       overflow: auto;
+       background-color: rgb(0,0,0);
+       background-color: rgba(0,0,0,0.4);
+       }
+
+       .modal-content {
+       background-color: #fefefe;
+       margin: 15% auto;
+       padding: 20px;
+       border: 1px solid #888;
+       width: 500px;
+       height: 240px;
+       }
+
+       .close {
+       color: #aaa;
+       float: right;
+       font-size: 28px;
+       font-weight: bold;
+       }
+
+       .close:hover,
+       .close:focus {
+       color: black;
+       text-decoration: none;
+       cursor: pointer;
+       }
+
+             
+   .error {
+       color: red;
+       font-size: 12px;
+       position: absolute;
+       /* bottom: -20px; Adjust this value to move the error message up or down */
+       left: 0;
+       width: 100%;
+   }
+
+   footer{
+    background-color: #DC0D15;
+    color: white;
+    /* display: flex; */
+    height: 80px;
+    justify-content: space-between;
+
+    
+}
+ul, a{
+    text-decoration: none !important;
+}
+li{
+    list-style: none;
+}
+.social{
+    margin-left: 60%;
+
+}
+.foot{
+    width: 100%;
+    height: 2px;
+    margin: 25px 50px -15px 30px;
+    border-top: 1px solid rgb(128, 123, 123);
+}
+
+.avatar-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #4CAF50;
+        }
+
+        .avatar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-image button {
+            position: absolute;
+            bottom: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .avatar-image input[type="file"] {
+            display: none;
+        }
+        .error {
+        color: red;
+        font-size: 12px;
+        position: absolute;
+        bottom: -16px; /* Adjust this value to move the error message up or down */
+        left: 0;
+        width: 100%;
+    }
+</style>
+<body style="background-color: #E2E2E2;">
+    <header>
+        <div class="header-item">
+            <div class="logo">
+                <a href="./TrangChu.html"><img src="./assets/img/logo.jpg" alt=""></a>
+            </div>
+            <input type="text" placeholder="Tìm kiếm">
+            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+
+            <div class="actions">
+                <a href="#">
+                    <i class="fa-solid fa-truck"></i>
+                    <p>Đơn hàng</p>
+                </a>
+                <a href="./GioHang.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>Giỏ hàng</p>
+                </a>
+
+            </div>
+            <div class="avatar">
+                <a href="./QuanLyThongTinCaNhan.html">
+                    <img src="./assets/img/avatar.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <nav class="header-menu">
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-carrot"></i>
+                THỰC PHẨM
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-utensils"></i>
+                THỨC ĂN
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-bottle-water"></i>
+                ĐỒ UỐNG
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-pizza-slice"></i>
+                ĐỒ ĂN NHANH
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-kitchen-set"></i>
+                ĐỒ GIA DỤNG
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-gifts"></i>
+                QUÀ LƯU NIỆM
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="profile">
+            <div class="menu">
+                <div class="avatar">
+                    <img src="./assets/img/avatar.png" alt="">
+                    <p>Nguyễn Văn A</p>
+                </div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <i class="fa-solid fa-user"></i>
+                        <a href=""><p class="hosocuatoi">Hồ sơ của tôi</p></a>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fa-solid fa-lock"></i>
+                        <a href="./DoiMatKhau.html"><p>Đổi mật khẩu</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <p class="title">Hồ sơ của tôi</p>
+                <div class="content">
+                    <form id="hoSoF" class="d-flex">
+                        <div>
+                            <div class="item username mb-3">
+                                <p>Tên đăng nhập:</p>
+                                <p style="margin-left: 0px; width: 50px;">abcxyz</p>
+                            </div>
+                            <div class="item name" >
+                                <div class="d-flex flex-column ">
+                                    <div class="d-flex">
+                                        <p>Tên:</p>
+                                        <input class="field" type="text" id="cName" placeholder="" value="Nguyễn Văn A">
+                                    </div>
+                                
+                                    <span id="cNameError" class="error position-relative" style="margin-left: 170px;"></span>
+                                    
+                                </div>    
+                            </div>
+                            <div class="item email">
+                                <div class="d-flex flex-column position-relative ">
+                                    <div class="d-flex">
+                                        <p>Email:</p>
+                                        <input class="field" type="text" id="cMail" placeholder="" value="user@gmail.com">
+                                    </div>
+                                    <span id="cMailError" class="error  " style="margin-left: 170px;"></span>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="item phone">
+                                <div class="d-flex flex-column position-relative ">
+                                    <div class="d-flex">
+                                        <p>Số điện thoại:</p>
+                                        <input class="field" type="tel" id="cPhone" placeholder="" value="0123456789">
+                                    </div>
+                                    <span id="cPhoneError" class="error  "  style="margin-left: 170px;"></span>
+                                </div>
+                               
+                               
+                            </div>
+                            <div class="item gender">
+                                <div class="d-flex flex-column position-relative ">
+                                    <div class="d-flex align-items-center">
+                                        <p class="mt-2">Giới tính:</p>
+                                        <input name="gender" type="radio" value="Nam" checked/>Nam
+                                        <input name="gender" type="radio" value="Nữ" />Nữ
+                                        <input name="gender" type="radio" value="Khác" />Khác
+                                    </div>
+                                    <span id="cGenderError" class="error  "  style="margin-left: 186px;"></span>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="item birthday">
+                                <div class="d-flex flex-column position-relative ">
+                                    <div class="d-flex">
+                                        <p>Ngày sinh:</p>
+                                        <input class="field" type="date" id="cDate" placeholder="" value="2022-11-11" >
+                                    </div>
+                                    <span id="cDateError"  class="error  "  style="margin-left: 170px;"></span>
+                                </div>
+                                
+                            </div>
+                            <button type="submit">Lưu</button>
+                        </div>
+                        <div style="margin-top: 90px; margin-left: 100px;" class="d-flex flex-column align-items-center">
+                            <div class="image-upload-container" style="background-color: #D9D9D9; border-color: black; width: 200px; height: 200px; border-radius: 50%;">
+                                <!-- <p class="text text-center" style="color: #828282;">Ảnh cá nhân</p> -->
+                                <img id="uploadedImage" src="./assets/img/avatar.png" alt="Ảnh sản phẩm" style="object-fit: cover; display: flow-root; width: 100%; height: 100%;">
+                            </div>
+                           <div class="d-flex flex-column">
+                            <div>
+                                <button type="button" class="select-image ms-1 mt-5 bg-light text-dark mb-0" style="border-radius: 5px; height: 35px;" >Chọn ảnh</button>
+                                <input style="margin-left: 0px; overflow: hidden;" type="file" id="imageUpload" class="hidden-input" accept="image/*">
+                            </div>
+                            <span id="imageError" class="error position-relative"></span>
+                           </div>
+                        </div>
+                    </form>
+                    
+                    
+                    
+                </div>
+            </div>
+
+        </section>
+         <!-- Modal Popup -->
+         <div id="successModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-between" style="height: 30px;">
+                    <div></div>
+                    <p class="modal-title fw-bold ms-3" style="font-size: 24px;">Thông báo</p>
+                    <span class="close text-dark">&times;</span>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <img src="/image/success.svg " alt="" style="height: 60px; width: 60px; margin-left: 7px;">
+                    <p style="font-size: 24px; ">Cập nhật hồ sơ thành công</p>
+                    <button id="okButton" class="mt-3 ms-1 bg-light text-dark fw-bold" style="height: 40px; width: 60px; border-radius: 5px;">OK</button>
+                </div>
+              
+            </div>
+        </div>
+          
+        <!-- Modal Popup fail -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-between" style="height: 30px;">
+                    <div></div>
+                    <p class="modal-title fw-bold ms-3" style="font-size: 24px;">Thông báo</p>
+                    <span class="close text-dark">&times;</span>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <img src="/image/error.svg " alt="" style="height: 60px; width: 60px; margin-left: 7px;">
+                    <p style="font-size: 24px; ">Cập nhật hồ sơ thất bại</p>
+                    <button id="retryButton" class="mt-3 ms-1 bg-light text-dark fw-bold" style="height: 40px; border-radius: 5px;">Quay lại</button>
+                </div>
+                
+                
+            </div>
+        </div>       
+    </main>
+    <footer class="footer d-flex flex-wrap  align-items-center" style="height: 80px;">
+        <div class="foot"></div>
+        <span class="okono ms-4">© 2024 Okono.</span>
+        <div class="social mt-3">
+            <ul class=" d-flex">
+                <li>
+                    <i class="fa-solid fa-globe mx-2"></i>
+                    <a class="text-white " href="#">Tiếng Việt</a>
+                </li>
+                <li class="mx-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li class="me-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+    <script>
+        document.getElementById('uploadButton').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.querySelector('.avatar-image img');
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    <script>
+        function validateForm() {
+        // Clear previous error messages
+        var frm = document.forms["hoSoF"];
+        // Get form elements
+        var cName = frm["cName"].value;
+        var cPhone = frm["cPhone"].value;
+        var cMail = frm["cMail"].value;
+        var cDate = frm["cDate"].value;    
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // var imageUpload = frm["imageUpload"].files[0];
+
+        var check = true;
+                
+        // Validate name
+        if (cName.trim() === "") {
+            document.getElementById("cNameError").innerText = "Họ tên không được bỏ trống";
+            check = false;
+        } else {
+            document.getElementById("cNameError").innerText = "";
+        }
+
+        // Validate phone
+        if (cPhone.trim() === "") {
+            document.getElementById("cPhoneError").innerText = "Số điện thoại không được bỏ trống";
+            check = false;
+        } else {
+            if (isNaN(cPhone)) {
+            document.getElementById("cPhoneError").innerText = "Số điện thoại chỉ được nhập số";
+            check = false;
+            }
+            else{
+                document.getElementById("cPhoneError").innerText = "";
+            }
+        }
+
+        // Validate email
+        if (cMail.trim() === "") {
+            document.getElementById("cMailError").innerText = "Email không được bỏ trống";
+            check = false;
+        } else {
+            if (!emailRegex.test(cMail.trim())) {
+                document.getElementById("cMailError").innerText = "Email không đúng định dạng";
+                check = false;
+            } 
+            else{
+                document.getElementById("cMailError").innerText = "";
+            }
+            }
+        // Validate giới tính
+        var genderInputs = document.getElementsByName('gender');
+            var isChecked = false;
+            for (var i = 0; i < genderInputs.length; i++) {
+                if (genderInputs[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if (!isChecked) {
+                document.getElementById("cGenderError").innerText = "Vui lòng chọn giới tính";
+                check = false;
+            } else {
+                document.getElementById("cGenderError").innerText = "";
+            }
+
+           
+            if (cDate.trim() === "") {
+                document.getElementById("cDateError").innerText = "Vui lòng chọn ngày sinh";
+                check = false;
+            } else {
+                document.getElementById("cDateError").innerText = "";
+            }
+            // if (!imageUpload) {
+            //     document.getElementById("imageError").innerText = "Vui lòng chọn ảnh";
+            //     check = false;
+            // }
+            // else{
+            //     document.getElementById("imageError").innerText = "";
+            // }
+        
+
+        return check;
+    }
+
+document.getElementById('hoSoF').addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (validateForm()) {
+        // Show success modal
+        var modal = document.getElementById('successModal');
+        var span = document.getElementsByClassName('close')[0];
+        var okButton = document.getElementById('okButton');
+
+        modal.style.display = 'block';
+
+        // Close modal on click
+        span.onclick = function() {
+            modal.style.display = 'none';
+            window.location.href = 'TrangChu.html';
+        }
+
+        okButton.onclick = function() {
+            modal.style.display = 'none';
+            window.location.href = 'QuanLyThongTinCaNhan.html';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                window.location.href = 'TrangChu.html';
+            }
+        }
+    } else {
+        // Show error modal
+        var errorModal = document.getElementById('errorModal');
+        var closeError = errorModal.getElementsByClassName('close')[0];
+        var retryButton = document.getElementById('retryButton');
+
+        errorModal.style.display = 'block';
+
+        // Close error modal on click
+        closeError.onclick = function() {
+            errorModal.style.display = 'none';
+        }
+
+        retryButton.onclick = function() {
+            errorModal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == errorModal) {
+                errorModal.style.display = 'none';
+            }
+        }
+    }
+});
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectImageBtn = document.querySelector('.select-image');
+            const imageUploadInput = document.getElementById('imageUpload');
+            const uploadedImage = document.getElementById('uploadedImage');
+            const placeholderText = document.querySelector('.text');
+    
+            selectImageBtn.addEventListener('click', function() {
+                imageUploadInput.click(); // Trigger click event on file input when button is clicked
+            });
+    
+            imageUploadInput.addEventListener('change', function(event) {
+                if (event.target.files && event.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        uploadedImage.src = reader.result;
+                        uploadedImage.style.display = 'block';
+                        placeholderText.style.display = 'none';
+                    }
+                    reader.readAsDataURL(event.target.files[0]);
+                } else {
+                    uploadedImage.style.display = 'none';
+                    placeholderText.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

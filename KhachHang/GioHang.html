@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg" />
+    <link rel="stylesheet" href="./assets/css/GioHang.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<style>
+    footer{
+    background-color: #DC0D15;
+    color: white;
+    /* display: flex; */
+    height: 80px;
+    justify-content: space-between;
+
+    
+}
+ul, a{
+    text-decoration: none !important;
+}
+li{
+    list-style: none;
+}
+.social{
+    margin-left: 60%;
+
+}
+.foot{
+    width: 100%;
+    height: 2px;
+    margin: 25px 50px 0px 30px;
+    border-top: 1px solid rgb(128, 123, 123);
+}
+
+.error {
+       color: red;
+       font-size: 12px;
+       position: absolute;
+       /* bottom: 100px;  Adjust this value to move the error message up or down */
+       left: 0;
+       width: 100%;
+   }
+</style>
+<body style="background-color: #E2E2E2;">
+    <header>
+        <div class="logo">
+            <a href="./TrangChu.html"><img src="./assets/img/logo.jpg" alt=""></a>
+        </div>
+        <div class="title">
+            Giỏ hàng
+        </div>
+        <div class="avatar">
+            <a href="./QuanLyThongTinCaNhan.html">
+                <img src="./assets/img/avatar.png" alt="">
+            </a>
+        </div>
+
+    </header>
+    <main>
+        <div class="container">
+            <form action="" id="formDatHang">
+                <div class="products">
+                    <div class="product-title">
+                        <input class="checkbox" type="checkbox" name="" id="">
+                        <h3 class="title-name">Sản phẩm</h3>
+                        <h3 class="title-price">Đơn giá</h3>
+                        <h3 class="title-quantity">Số lượng</h3>
+                        <h3 class="title-total">Số tiền</h3>
+                        <h3 class="title-action">Thao tác</h3>
+                    </div>
+                    <div class="product-item">
+                        <input class="checkbox" type="checkbox" name="" id="">
+                        <img src="./assets/img/products/keodan.jfif" alt="">
+                        <p class="product-name">Keo Dán Giày Chuyên Dụng MINSU Siêu Dính</p>
+                        <p class="product-price">34.000 đ</p>
+                        <div class="product-quantity">
+                            <div class="mt-1 d-flex" >
+                                
+                                <div style="margin-right: 30px" class="d-flex align-items-center">
+                                    <button type="button" id="decrease"  style="height: 25px; width: 25px; margin-top: 2px;" class="text-center me-2">-</button>
+                                    <input type="text" id="soLuong" value="1" min="1" class="text-center" style="width: 70px;">
+                                    <button type="button" id="increase" style="height: 25px; width: 25px; margin-top: 2px;" class="text-center ms-2">+</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <span id="quantityError" class="error" style="margin-left: 925px; bottom: 460px;"></span>
+                        <p class="product-total">34.000 đ</p>
+                        <a class="product-delete" href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                    <div class="product-item">
+                        <input class="checkbox" type="checkbox" name="" id="">
+                        <img src="./assets/img/products/noicom.jfif" alt="">
+                        <p class="product-name">Nồi cơm điện KAIMEIDI dung tích lớn 5l giữ nhiệt thông minh có thể hẹn giờ
+                        </p>
+                        <p class="product-price">34.000 đ</p>
+                        <div class="product-quantity">
+                            <div class="mt-1 d-flex" >
+                                
+                                <div style="margin-right: 30px" class="d-flex align-items-center">
+                                    <button type="button" id="decrease_1"  style="height: 25px; width: 25px; margin-top: 2px;" class="text-center me-2">-</button>
+                                    <input type="text" id="soLuong_1" value="1" min="1" class="text-center" style="width: 70px;">
+                                    <button type="button" id="increase_1" style="height: 25px; width: 25px; margin-top: 2px;" class="text-center ms-2">+</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <span id="quantityError_1" class="error" style="margin-left: 925px; bottom: 390px;"></span>
+                        <p class="product-total">34.000 đ</p>
+                        <a class="product-delete" href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                    <div class="product-item">
+                        <input class="checkbox" type="checkbox" name="" id="">
+                        <img src="./assets/img/products/suabot.jfif" alt="">
+                        <p class="product-name">Sữa bột ensure gold bổ sung dinh dưỡng</p>
+                        <p class="product-price">34.000 đ</p>
+                        <div class="product-quantity">
+                            <div class="mt-1 d-flex" >
+                                
+                                <div class="d-flex align-items-center">
+                                    <button type="button" id="decrease_2"  style="height: 25px; width: 25px; margin-top: 2px;" class="text-center me-2">-</button>
+                                    <input type="text" id="soLuong_2" value="1" min="1" class="text-center" style="width: 70px;">
+                                    <button type="button" id="increase_2" style="height: 25px; width: 25px; margin-top: 2px;" class="text-center ms-2">+</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <span id="quantityError_2" class="error" style="margin-left: 925px; bottom: 320px;"></span>
+                        <p class="product-total">34.000 đ</p>
+                        <a class="product-delete" href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                    <div class="product-item">
+                        <input class="checkbox" type="checkbox" name="" id="">
+                        <img src="./assets/img/products/kemdanhrang.jfif" alt="">
+                        <p class="product-name">Bàn Chải Điện P/S S100 PRO - Công Nghệ Sóng Âm, Chải Sạch Mảng Bám</p>
+                        <p class="product-price">34.000 đ</p>
+                        <div class="product-quantity">
+                            <div class="mt-1 d-flex" >
+                                
+                                <div style="margin-right: 30px" class="d-flex align-items-center">
+                                    <button type="button" id="decrease_3"  style="height: 25px; width: 25px; margin-top: 2px;" class="text-center me-2">-</button>
+                                    <input type="text" id="soLuong_3" value="1" min="1" class="text-center" style="width: 70px;">
+                                    <button type="button" id="increase_3" style="height: 25px; width: 25px; margin-top: 2px;" class="text-center ms-2">+</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <span id="quantityError_3" class="error" style="margin-left: 925px; bottom: 250px;"></span>
+                        <p class="product-total">34.000 đ</p>
+                        <a class="product-delete" href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                    <div class="tongtien">
+                        <input class="checkbox" type="checkbox" name="" id="">
+                        <p class="choose-all">Chọn tất cả (4)</p>
+                        <a class="delete-all" href=""><i class="fa-solid fa-trash"></i></a>
+                        <p class="tongthanhtoan">Tổng thanh toán 4 sản phẩm</p>
+                        <p class="price-all">3.307.000 đ</p>
+                        <button type="submit">Mua hàng</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </main>
+    <footer class="footer d-flex flex-wrap  align-items-center">
+        <div class="foot"></div>
+        <span class="okono ms-4">© 2024 Okono.</span>
+        <div class="social mt-3">
+            <ul class=" d-flex">
+                <li>
+                    <i class="fa-solid fa-globe mx-2"></i>
+                    <a class="text-white " href="#">Tiếng Việt</a>
+                </li>
+                <li class="mx-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li class="me-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+    <script>
+        document.getElementById('increase').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    
+        document.getElementById('decrease').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong');
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+        document.getElementById('increase_1').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong_1');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    
+        document.getElementById('decrease_1').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong_1');
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+        document.getElementById('increase_2').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong_2');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    
+        document.getElementById('decrease_2').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong_2');
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+        document.getElementById('increase_3').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong_3');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    
+        document.getElementById('decrease_3').addEventListener('click', function () {
+            var quantityInput = document.getElementById('soLuong_3');
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+    </script>
+    <script>
+        function validateForm() {
+        // Clear previous error messages
+        
+        // Clear previous error messages
+        var frm = document.forms["formDatHang"];
+        
+        var soLuong = frm["soLuong"].value;
+        var soLuong1 = frm["soLuong_1"].value;
+        var soLuong2 = frm["soLuong_2"].value;
+        var soLuong3 = frm["soLuong_3"].value;
+        var regex = /^\d+$/; 
+        var check = true; // Assume the form is valid unless a check fails
+        
+        
+        // Validate quantity (soLuong)
+        if (soLuong.trim() === "") {
+            document.getElementById("quantityError").innerText = "Số lượng không được bỏ trống";
+            check = false;
+        } else {
+            // Regular expression to match only digits
+            if (!regex.test(soLuong)) {
+                document.getElementById("quantityError").innerText = "Số lượng chỉ được nhập số";
+                check = false;
+            } else {
+                document.getElementById("quantityError").innerText = "";
+            }
+        }
+        // Validate quantity (soLuong)
+        if (soLuong1.trim() === "") {
+            document.getElementById("quantityError_1").innerText = "Số lượng không được bỏ trống";
+            check = false;
+        } else {
+            // Regular expression to match only digits
+            if (!regex.test(soLuong1)) {
+                document.getElementById("quantityError_1").innerText = "Số lượng chỉ được nhập số";
+                check = false;
+            } else {
+                document.getElementById("quantityError_1").innerText = "";
+            }
+        }
+
+        // Validate quantity (soLuong)
+        if (soLuong2.trim() === "") {
+            document.getElementById("quantityError_2").innerText = "Số lượng không được bỏ trống";
+            check = false;
+        } else {
+            // Regular expression to match only digits
+            if (!regex.test(soLuong2)) {
+                document.getElementById("quantityError_2").innerText = "Số lượng chỉ được nhập số";
+                check = false;
+            } else {
+                document.getElementById("quantityError_2").innerText = "";
+            }
+        }
+
+        // Validate quantity (soLuong)
+        if (soLuong3.trim() === "") {
+            document.getElementById("quantityError_3").innerText = "Số lượng không được bỏ trống";
+            check = false;
+        } else {
+            // Regular expression to match only digits
+            if (!regex.test(soLuong3)) {
+                document.getElementById("quantityError_3").innerText = "Số lượng chỉ được nhập số";
+                check = false;
+            } else {
+                document.getElementById("quantityError_3").innerText = "";
+            }
+        }
+        if(regex.test(soLuong) && soLuong.trim() !== "" && regex.test(soLuong1) && soLuong1.trim() !== "" && regex.test(soLuong2) && soLuong2.trim() !== "" && regex.test(soLuong3) && soLuong3.trim() !== "")
+        {
+            check = true;
+        }
+        return check;
+ 
+    }
+    document.getElementById('formDatHang').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // Lấy giá trị từ for
+                
+                window.location.href = 'DatHang.html';
+            }
+            
+        });
+
+
+      </script>
+</body>
+
+</html>

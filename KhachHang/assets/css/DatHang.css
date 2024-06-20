@@ -1,0 +1,385 @@
+/* RESET CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E2E2E2;
+}
+
+.clear {
+    clear: both;
+}
+
+/* HEADER --------------------------------------*/
+
+header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* box-shadow: ; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 70px;
+    background-color: #DC0D15;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header .logo {
+    margin-left: 70px;
+    height: 70px;
+}
+
+header .logo img {
+    width: 85px;
+    height: 70px;
+
+}
+
+header .title {
+    margin-left: -920px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    border-left: 2px solid #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header .avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 70px;
+
+}
+
+header .avatar a {
+    width: 40px;
+    height: 40px;
+
+}
+
+header .avatar a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+/* END HEADER --------------------------------------*/
+
+/* MAIN --------------------------------------*/
+
+main {
+    /* width: 1150px; */
+    height: 600px;
+    margin: 100px auto 50px auto;
+    background-color: #E2E2E2;
+    /* background-color: #fff; */
+}
+
+.container {
+    display: flex;
+}
+
+.container .products {
+    width: 550px;
+    /* background-color: #2ee28e; */
+}
+
+.container .products .product-title {
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
+
+}
+
+.container .products .product-title .title-name {
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+}
+
+.container .products .product-title .title-price {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.container .products .product-title .title-quantity {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.container .products .product-title .title-total {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.container .products .product-title h3 {
+    font-size: 16px;
+}
+
+.container .products .product-item {
+    width: 100%;
+    height: 70px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.container .products .product-item img {
+    height: 50px;
+    width: 50px;
+}
+
+.container .products .product-item .product-name {
+    height: 50px;
+    width: 185px;
+    font-size: 14px;
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+.container .products .product-item .product-price {
+    height: 50px;
+    width: 100px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: right;
+    padding: 18px 20px;
+    color: #DC0D15;
+}
+
+.container .products .product-item .product-quantity {
+    height: 50px;
+    width: 100px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    padding: 18px 20px;
+    color: #DC0D15;
+}
+
+.container .products .product-item .product-total {
+    height: 50px;
+    width: 100px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: right;
+    padding: 18px 20px;
+    color: #DC0D15;
+}
+
+.container .products .tongtien {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.container .products .tongtien .item {
+    display: flex;
+    justify-content: right;
+    margin: 10px 0;
+}
+
+.container .products .tongtien .item h5 {
+    font-size: 16px;
+    text-align: left;
+    width: 130px;
+}
+
+.container .products .tongtien .item p {
+    width: 150px;
+    text-align: right;
+    color: #DC0D15;
+    font-weight: bold;
+}
+
+.container .products .tongtien button {
+    width: 100px;
+    height: 40px;
+    padding: 5px 10px;
+    background-color: #DC0D15;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 410px;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #fff;
+    color: #828282;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.order-info {
+    /* display:; */
+    width: 550px;
+    margin-left: 50px;
+}
+
+.order-info h4{
+    text-align: center;
+    font-size: 20px;
+}
+
+.order-info p{
+    text-align: center;
+    font-style: italic;
+    color: #828282;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.order-info input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.order-info h5{
+    font-size: 14px;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.address {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 40px;;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    height: 40px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #CEC8C8;
+}
+
+.order-info textarea {
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 15px 0 0 15px;
+}
+
+
+/* END MAIN --------------------------------------*/
+
+
+
+
+/* FOOTER --------------------------------------*/
+
+/* footer {
+    background-color: #d10000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+} */
+footer{
+    background-color: #DC0D15;
+    color: white;
+    /* display: flex; */
+    height: 80px;
+    justify-content: space-between;
+
+    
+}
+ul, a{
+    text-decoration: none !important;
+}
+li{
+    list-style: none;
+}
+.social{
+    margin-left: 60%;
+
+}
+.foot{
+    width: 100%;
+    height: 2px;
+    margin: 25px 50px 0px 30px;
+    border-top: 1px solid rgb(128, 123, 123);
+}
+
+/* END FOOTER --------------------------------------*/

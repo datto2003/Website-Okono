@@ -1,0 +1,371 @@
+/* RESET CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E2E2E2;
+}
+
+.clear{
+    clear: both;
+}
+
+/* HEADER --------------------------------------*/
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+header .header-item {
+    width: 100%;
+    height: 70px;
+    background-color: #DC0D15;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+header .header-menu {
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    background-color: #252525;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+
+}
+
+header .header-item .logo {
+    margin-left: 70px;
+}
+
+header .header-item .logo img {
+    width: 85px;
+    height: 70px;
+    
+}
+
+header .header-item input[type="text"] {
+    width: 600px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+}
+
+header .header-item .search-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: #828282;
+    padding: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+    margin-left: -105px;
+    cursor: pointer;
+}
+
+header .header-menu a {
+    color: white;
+    margin: 0 30px;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+header .header-menu a:hover {
+    color: #828282;
+}
+
+header .header-item .actions {
+    display: flex;
+    
+}
+
+header .header-item .actions a {
+    text-align: center;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+header .header-item .actions p {
+    margin-bottom: 0;
+}
+
+header .header-item .avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 70px;
+
+}
+
+header .header-item .avatar a {
+    width: 40px;
+    height: 40px;
+
+}
+
+header .header-item .avatar a img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+/* END HEADER --------------------------------------*/
+
+/* MAIN --------------------------------------*/
+
+main {
+    width: 1150px;
+    margin: 100px auto 50px auto;
+    background-color: #E2E2E2;
+    /* background-color: #fff; */
+}
+
+.profile {
+    display: flex;
+}
+
+.profile .menu {
+    background-color: #E2E2E2;
+}
+
+.profile .menu .avatar {
+    margin-top: 30px;
+    width: 250px;
+    height: 70px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #828282;
+}
+
+.profile .menu .avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.profile .menu .avatar p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.profile .menu .menu-list {
+    margin: 50px 0;
+}
+
+.profile .menu .menu-list .menu-item {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    margin: 30px 30px;
+}
+
+.profile .menu .menu-list .menu-item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.profile .menu .menu-list .menu-item a:hover {
+    color: #DC0D15;
+}
+
+.profile .menu .menu-list .menu-item i {
+    font-size: 20px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.profile .menu .menu-list .menu-item p {
+    font-size: 18px;
+    padding: 5px;
+    line-height: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.profile .menu .menu-list .menu-item .hosocuatoi {
+    color: #DC0D15;
+}
+
+/*  */
+
+.container {
+    background-color: #fff;
+    width: 100%;
+    margin:30px 0 30px 50px;
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom:1px solid #828282;
+    height: 70px;
+    width: 100%;
+    line-height: 70px;
+    padding-left: 50px;
+}
+
+.container .content {
+    display: flex;
+}
+
+
+
+
+.username {
+    margin-top: 50px;
+}
+
+.container .content form .item {
+    margin:30px 0 30px 60px;
+    align-items: center;
+    display: flex;
+}
+
+.container .content form .item h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.container .content form .item p {
+    font-size: 16px;
+    font-weight:500;
+    width: 150px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.container .content form .item .field {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.container .content form .gender input {
+    margin:0 5px 0 15px;
+}
+
+/*  */
+
+.container .content form button {
+    background-color: #DC0D15;
+    border: 1.5px solid #000;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100px;
+    height: 35px;
+    margin-left: 230px;
+    margin-bottom: 50px;
+}
+
+.content .avatar-image {
+    width: 100%;
+    text-align: center;
+
+}
+
+.content .avatar-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 80px 60px 30px 60px;
+}
+
+.content .avatar-image button{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* END MAIN --------------------------------------*/
+
+
+
+
+/* FOOTER --------------------------------------*/
+
+footer {
+    background-color: #d10000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+}
+
+
+/* END FOOTER --------------------------------------*/
+.hidden-input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.image-upload-container {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    overflow: hidden;
+}
+
+.image-upload-container {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    overflow: hidden;
+}
+
+.image-upload-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+
+.image-upload-container .placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #828282;
+    font-size: 16px;
+}
+
+.image-upload-container input[type="file"] {
+    display: none;
+}
+
+

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi mật khẩu</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.jpg" />
+    <link rel="stylesheet" href="./assets/css/DoiMatKhau2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<style>
+    .modal {
+       display: none; /* Ẩn modal mặc định */
+       position: fixed;
+       z-index: 1;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       overflow: auto;
+       background-color: rgb(0,0,0);
+       background-color: rgba(0,0,0,0.4);
+       }
+
+       .modal-content {
+       background-color: #fefefe;
+       margin: 15% auto;
+       padding: 20px;
+       border: 1px solid #888;
+       width: 500px;
+       height: 240px;
+       }
+
+       .close {
+       color: #aaa;
+       float: right;
+       font-size: 28px;
+       font-weight: bold;
+       }
+
+       .close:hover,
+       .close:focus {
+       color: black;
+       text-decoration: none;
+       cursor: pointer;
+       }
+
+               .position-relative {
+           position: relative;
+       }
+
+   .error {
+       color: red;
+       font-size: 12px;
+       position: absolute;
+       /* bottom: -10px;  */
+       left: 0;
+       width: 100%;
+   }
+</style>
+<body style="background-color: #E2E2E2;">
+    <header>
+        <div class="header-item">
+            <div class="logo">
+                <a href="./TrangChu.html"><img src="./assets/img/logo.jpg" alt=""></a>
+            </div>
+            <input type="text" placeholder="Tìm kiếm">
+            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+
+            <div class="actions">
+                <a href="#">
+                    <i class="fa-solid fa-truck"></i>
+                    <p>Đơn hàng</p>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>Giỏ hàng</p>
+                </a>
+
+            </div>
+            <div class="avatar">
+                <a href="">
+                    <img src="./assets/img/avatar.png" alt="">
+                </a>
+            </div>
+        </div>
+
+        <nav class="header-menu">
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-carrot"></i>
+                THỰC PHẨM
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-utensils"></i>
+                THỨC ĂN
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-bottle-water"></i>
+                ĐỒ UỐNG
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-pizza-slice"></i>
+                ĐỒ ĂN NHANH
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-kitchen-set"></i>
+                ĐỒ GIA DỤNG
+            </a>
+            <a href="./DanhMuc.html">
+                <i class="fa-solid fa-gifts"></i>
+                QUÀ LƯU NIỆM
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="profile">
+            <div class="menu">
+                <div class="avatar">
+                    <img src="./assets/img/avatar.png" alt="">
+                    <p>Nguyễn Văn A</p>
+                </div>
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <i class="fa-solid fa-user"></i>
+                        <a href="./QuanLyThongTinCaNhan.html"><p class="hosocuatoi">Hồ sơ của tôi</p></a>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fa-solid fa-lock"></i>
+                        <a href="./DoiMatKhau.html"><p class="doimatkhau">Đổi mật khẩu</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <p class="title">Đổi mật khẩu</p>
+                <form action="" id="DoiMK2">
+                    <div class="password new-password">
+                        <p>Mật khẩu mới:</p>
+                        <input type="password" id="password" placeholder="">
+                        <a href="#" class="me-2"><i class="fa-solid fa-eye" id="togglePassword" onclick="togglePasswordVisibility()"></i></a>
+                        <span id="passError" class="error d-flex justify-content-start text-start" style="margin-left: 400px; width: 300px; bottom: -10px; "></span> 
+
+                    </div>
+                    <div class=" password confirm-password">
+                        <p>Xác nhận mật khẩu mới:</p>
+                        <input type="password" id="password2" placeholder="">
+                        <a href="#" class="me-2"><i class="fa-solid fa-eye" id="togglePassword2" onclick="togglePasswordVisibility()"></i></a>
+                        <span id="pass2Error" class="error d-flex justify-content-start " style="margin-left: 400px; bottom: 15px;"></span> 
+
+                    </div>
+                    <button type="submit">Xác nhận</button>
+                </form>
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex align-items-center justify-content-between" style="height: 30px;">
+                            <div></div>
+                            <p class="modal-title fw-bold ms-3" style="font-size: 24px;">Thông báo</p>
+                            <span class="close text-dark">&times;</span>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <img src="/image/success.svg " alt="" style="height: 60px; width: 60px; margin-left: 7px;">
+                            <p style="font-size: 24px; ">Đổi mật khẩu thành công </p>
+                            <button id="okButton" class="mt-3 ms-1 bg-light text-dark fw-bold" style="height: 40px; width: 60px; border-radius: 5px;">OK</button>
+                            
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer class="footer d-flex flex-wrap  align-items-center" style="height: 80px;">
+        <div class="foot"></div>
+        <span class="okono ms-4">© 2024 Okono.</span>
+        <div class="social mt-3">
+            <ul class=" d-flex">
+                <li>
+                    <i class="fa-solid fa-globe mx-2"></i>
+                    <a class="text-white " href="#">Tiếng Việt</a>
+                </li>
+                <li class="mx-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li class="me-3">
+                    <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function (e) {
+            const password = document.getElementById('password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        document.getElementById('togglePassword2').addEventListener('click', function (e) {
+            const password = document.getElementById('password2');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
+<script>
+    function validateForm() {
+        var frm = document.forms["DoiMK2"];
+        var pass = frm["password"].value;
+        var pass2 = frm["password2"].value;
+        var check = true;
+
+        // Validate password
+        if (pass.trim() === "") {
+            document.getElementById("passError").innerText = "Mật khẩu mới không được trống";
+            check = false;
+        }else{
+            if (pass.trim() === "Khachhang01") {
+            document.getElementById("passError").innerText = "Mật khẩu mới với mật khẩu cũ giống nhau";
+            check = false;
+        } else if (pass.trim().length < 8 || pass.trim().length > 16) {
+                check = false;
+                document.getElementById("passError").innerText = 'Mật khẩu phải dài 8-16 ký tự, chứa ít nhất một ký tự viết hoa và một ký tự viết thường và chỉ bao gồm các chữ cái, số hoặc dấu câu thông thường';
+            } else if (!/[A-Z]/.test(pass.trim())) {
+                check = false;
+                document.getElementById("passError").innerText = 'Mật khẩu phải dài 8-16 ký tự, chứa ít nhất một ký tự viết hoa và một ký tự viết thường và chỉ bao gồm các chữ cái, số hoặc dấu câu thông thường';
+            } else if (!/[a-z]/.test(pass.trim())) {
+                check = false;
+                document.getElementById("passError").innerText = 'Mật khẩu phải dài 8-16 ký tự, chứa ít nhất một ký tự viết hoa và một ký tự viết thường và chỉ bao gồm các chữ cái, số hoặc dấu câu thông thường';
+            } else if (!/^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~-]+$/.test(pass.trim())) {
+                check = false;
+                document.getElementById("passError").innerText = 'Mật khẩu phải dài 8-16 ký tự, chứa ít nhất một ký tự viết hoa và một ký tự viết thường và chỉ bao gồm các chữ cái, số hoặc dấu câu thông thường';
+            } else {
+                document.getElementById("passError").innerText = ''; // Xóa thông báo lỗi nếu mật khẩu hợp lệ
+            }
+        }   
+
+        if (pass2.trim() === "") {
+            document.getElementById("pass2Error").innerText = "Xác nhận mật khẩu không được trống";
+            check = false;
+        }else{
+            if (pass2.trim() !== pass.trim()) {
+            document.getElementById("pass2Error").innerText = "Mật khẩu mới với mật khẩu xác nhận không giống nhau";
+            check = false;
+        }else {
+                 document.getElementById("pass2Error").innerText = ''; 
+            }
+        }
+        
+        
+        return check;
+    }
+
+    document.getElementById('DoiMK2').addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (validateForm()) {
+            // Show success modal
+            var modal = document.getElementById('successModal');
+            var span = document.getElementsByClassName('close')[0];
+            var okButton = document.getElementById('okButton');
+
+             modal.style.display = 'block';
+            
+            //Close modal on click
+            span.onclick = function() {
+                modal.style.display = 'none';
+                window.location.href = 'QuanLyThongTinCaNhan.html';
+            }
+
+            okButton.onclick = function() {
+                modal.style.display = 'none';
+                window.location.href = 'QuanLyThongTinCaNhan.html';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    window.location.href = 'QuanLyThongTinCaNhan.html';
+                }
+            }
+        }
+      
+    });
+</script>
+</body>
+
+</html>

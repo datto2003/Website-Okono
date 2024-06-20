@@ -1,0 +1,334 @@
+/* RESET CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E2E2E2;
+}
+
+.clear{
+    clear: both;
+}
+
+/* HEADER --------------------------------------*/
+
+header{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+header .header-item {
+    width: 100%;
+    height: 70px;
+    background-color: #DC0D15;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+header .header-menu {
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    background-color: #252525;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+
+}
+
+header .header-item .logo {
+    margin-left: 70px;
+}
+
+header .header-item .logo img {
+    width: 85px;
+    height: 70px;
+    
+}
+
+header .header-item input[type="text"] {
+    width: 600px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+}
+
+header .header-item .search-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: #828282;
+    padding: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+    margin-left: -105px;
+    cursor: pointer;
+}
+
+header .header-menu a {
+    color: white;
+    margin: 0 30px;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+header .header-menu a:hover {
+    color: #828282;
+}
+
+header .header-item .actions {
+    display: flex;
+    
+}
+
+header .header-item .actions a {
+    text-align: center;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+header .header-item .actions p {
+    margin-bottom: 0;
+}
+
+header .header-item .avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 70px;
+
+}
+
+header .header-item .avatar a {
+    width: 40px;
+    height: 40px;
+
+}
+
+header .header-item .avatar a img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+/* END HEADER --------------------------------------*/
+
+/* MAIN --------------------------------------*/
+
+main {
+    width: 1150px;
+    margin: 100px auto 50px auto;
+    background-color: #E2E2E2;
+    /* background-color: #fff; */
+}
+
+.profile {
+    display: flex;
+}
+
+.profile .menu {
+    background-color: #E2E2E2;
+}
+
+.profile .menu .avatar {
+    margin-top: 30px;
+    width: 250px;
+    height: 70px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #828282;
+}
+
+.profile .menu .avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.profile .menu .avatar p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.profile .menu .menu-list {
+    margin: 50px 0;
+}
+
+.profile .menu .menu-list .menu-item {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    margin: 30px 30px;
+}
+
+.profile .menu .menu-list .menu-item a {
+    text-decoration: none;
+    color: #000;
+}
+
+.profile .menu .menu-list .menu-item a:hover {
+    color: #DC0D15;
+}
+
+.profile .menu .menu-list .menu-item p {
+    margin-bottom: 0;
+}
+
+.profile .menu .menu-list .menu-item i {
+    font-size: 20px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.profile .menu .menu-list .menu-item p {
+    font-size: 18px;
+    padding: 5px;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.profile .menu .menu-list .menu-item .doimatkhau {
+    color: #DC0D15;
+}
+
+/*  */
+
+.container {
+    background-color: #fff;
+    width: 100%;
+    /* display: flex; */
+    margin:30px 0 0 50px;
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom:1px solid #828282;
+    height: 70px;
+    width: 100%;
+    line-height: 70px;
+    padding-left: 50px;
+    margin-bottom: 50px;
+}
+
+
+
+form{
+    width: 100%;
+    text-align: center;
+}
+
+form .password {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form .password p {
+    width: 200px;
+    text-align: left;
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+form .password input {
+    width: 300px;
+    margin: 40px 0;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+}
+
+form .password a {
+    position: absolute;
+    top:48px;
+    right: 175px;
+    text-decoration: none;
+    color: #000;
+}
+
+form button {
+    width: 100px;
+    height: 40px;
+    padding: 5px 10px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    background-color: #DC0D15;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* END MAIN --------------------------------------*/
+
+
+
+
+/* FOOTER --------------------------------------*/
+
+footer {
+    background-color: #d10000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+}
+
+
+/* END FOOTER --------------------------------------*/
+
+footer{
+    background-color: #DC0D15;
+    color: white;
+    /* display: flex; */
+    height: 80px;
+    justify-content: space-between;
+
+    
+}
+ul, a{
+    text-decoration: none !important;
+}
+li{
+    list-style: none;
+}
+.social{
+    margin-left: 60%;
+
+}
+.foot{
+    width: 100%;
+    height: 2px;
+    margin: 25px 50px 0px 30px;
+    border-top: 1px solid rgb(128, 123, 123);
+    margin-bottom: -12px;
+}
