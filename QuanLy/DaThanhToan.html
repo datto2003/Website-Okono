@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Thông tin đơn hàng đã thanh toán</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/ãcff.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+        .texta{
+            font-size: 18px!important;
+        }
+        .bg-navbar{
+            background: #DC0D15;
+        }
+        
+        .page-link:focus {
+            border-color: black;
+            color: black;
+            outline: none;
+            box-shadow: none;
+            background-color: #CEC8C8;
+        }
+        .page-link:hover {
+            border-color: black;
+            color: black;
+            outline: none;
+            box-shadow: none;
+            background-color: #CEC8C8;
+        }
+        .page-item.active .page-link {
+           background-color: #CEC8C8;
+            border-color: black;
+            color:black;
+        }
+        .page-link{
+            border-color: black;
+            color: black;
+            font-size: 20px;
+            border-radius: 0!important;
+        }
+        .ps_4 {
+            padding-left: 1.5rem;
+        }
+        .pt_1 {
+            padding-top: 0.25rem ;
+        }
+        .ms_2 {
+            margin-left: 0.5rem ;
+        }
+        
+        .modal {
+        display: none; /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 500px;
+        height: 240px;
+        }
+
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+        button {
+        margin-top: 10px;
+        }
+
+        .box {
+        width: 1216px;
+        height: 248px;
+        overflow: auto;
+        border: 1px solid #ced4da; /* Độ dày và màu sắc của border */
+         /* Khoảng cách giữa border và nội dung bên trong */
+        }
+        
+      
+    </style>
+    <body>
+        
+        <div class=" d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div style="width: 280px;" id="sidebar-wrapper" >
+                <div class="sidebar-heading border-0 bg-navbar d-flex align-items-center py-4" style="height: 75px; padding-left: 30px;">
+                    <a href="/QuanLyDonHang.html"><img src="/ãcff.png" alt="" style="height: 67px;"></a>
+                </div>
+                <hr style="height: 5px; color: #EE8C01; border: none;" class="my-1">
+                <div class="list-group list-group-flush border-0" style="margin-top: 40px;">
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 "  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/home.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px; cursor: pointer;">
+                                Trang chủ
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/customer.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Quản lý khách hàng
+                            </div>
+                        </div>
+                    </a>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/product.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px; color: black;">
+                                Quản lý sản phẩm
+                            </div>
+                        </div>
+                    </a>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/bill.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-danger" style="font-size: 18px; padding-left: 5px; font-weight: bold; color:#DC0D15; ">
+                                Quản lý đơn hàng
+                            </div>
+                        </div>
+                    </a>                       
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/kho.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Quản lý kho hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/bd.svg " alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Thống kê doanh thu
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-navbar" style="height: 75px; width: 100%;">
+                    <div class="container-fluid ">
+                        <button class="btn text-light" id="sidebarToggle">
+                            <i class="fas fa-bars" style="font-size: 30px;"></i>
+                        </button>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="text-light text-decoration-none pt-2"> 
+                                <div class="d-flex align-items-center">
+                                    <p>Xin chào,</p>
+                                    <p style="font-weight: bold; margin-left: 5px;">Admin</p>
+                                </div>
+                                
+                            </a>
+                            <img src="/image/avt.svg" alt="" style="height: 40px; width: 35px; margin-left: 15px; margin-right: 20px;">
+
+                        </div>
+                    </div>
+                </nav>
+                <hr style="height: 5px; color: #EE8C01; border: none;" class="my-1">
+
+
+                
+                <!-- Code nội dung ở đây-->
+                <div class="main-content p-0 pt-3 mt-1 mb-1 border-0" style="height: 650px;">
+                    <div class="d-flex">
+                        <a class="text-decoration-none" href="/QuanLyDonHang.html"><img src="/image/back.svg" alt="" style="height: 25px; width: 40px; margin-top: 8px;"></a>
+                        <h3 class="ms-1" style="font-weight: bold;">Thông tin đơn hàng - DH01</h3>
+                    </div>
+    
+                    
+                        <div class="me-5 rphone ripad padding__phone ms-2" style="border: #CEC8C8 solid; width: 1250px; height: 590px" id="myDiv">
+                            <div class="d-flex flex-column mt-4">
+                                <div class="d-flex flex-column" style="margin-left: 40px;">
+                                    <div class="d-flex">
+                                        <label for="madonhang" class="fw-bold texta">Mã đơn hàng: </label>
+                                        <label for="" class="texta" style="margin-left: 70px;">DH02</label>
+                                    </div>
+                                    <div class="d-flex">
+                                        <label for="madonhang" class="fw-bold texta">Mã khách hàng: </label>
+                                        <label for="" class="texta" style="margin-left: 53px;">KH02</label>
+                                    </div>
+                                    <div class="d-flex">
+                                        <label for="madonhang" class="fw-bold texta">Tên khách hàng: </label>
+                                        <label for="" class="texta" style="margin-left: 48px;">Nguyễn Văn A</label>
+                                    </div>
+                                    <div class="d-flex">
+                                        <label for="madonhang" class="fw-bold texta">Ngày đặt hàng: </label>
+                                        <label for="" class="texta" style="margin-left: 58px;">23/02/2003</label>
+                                    </div>
+                            
+
+                                </div>
+                                <div>
+                                    <div class="box ms-3 mt-4">
+                                        <table class="table table-bordered " style="border: 1px black; ">
+                                            <thead style="background-color: #D9D9D9;">
+                                              <tr>
+                                                <th scope="col" style="padding-left: 20px;">Tên sản phẩm</th>
+                                                <th scope="col" class="text-center">Số lượng</th>
+                                                <th scope="col"class="text-center">Đơn giá</th>
+                                                <th scope="col" class="text-center">Thành tiền</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                              <tr >
+                                                <th scope="row"style="padding-left: 20px;">Bánh Chocopie</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">200.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Bia Heineken</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">200.000</td>
+                                                <td class="text-center">400.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi cơm điện</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">300.000</td>
+                                                <td class="text-center">300.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi hấp</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">100.000</td>
+                                              </tr>
+                                              <tr >
+                                                <th scope="row"style="padding-left: 20px;">Bánh Chocopie</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">200.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Bia Heineken</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">200.000</td>
+                                                <td class="text-center">400.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi cơm điện</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">300.000</td>
+                                                <td class="text-center">300.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi hấp</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">100.000</td>
+                                              </tr>
+                                              <tr >
+                                                <th scope="row"style="padding-left: 20px;">Bánh Chocopie</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">200.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Bia Heineken</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">200.000</td>
+                                                <td class="text-center">400.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi cơm điện</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">300.000</td>
+                                                <td class="text-center">300.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi hấp</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">100.000</td>
+                                              </tr>
+                                              <tr >
+                                                <th scope="row"style="padding-left: 20px;">Bánh Chocopie</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">200.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Bia Heineken</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">200.000</td>
+                                                <td class="text-center">400.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi cơm điện</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">300.000</td>
+                                                <td class="text-center">300.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi hấp</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">100.000</td>
+                                              </tr>
+                                              <tr >
+                                                <th scope="row"style="padding-left: 20px;">Bánh Chocopie</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">200.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Bia Heineken</th>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">200.000</td>
+                                                <td class="text-center">400.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi cơm điện</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">300.000</td>
+                                                <td class="text-center">300.000</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row"style="padding-left: 20px;">Nồi hấp</th>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">100.000</td>
+                                                <td class="text-center">100.000</td>
+                                              </tr>
+                                        
+                    
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                </div>
+                                <div class="d-flex  mt-3" style="margin-left: 30px;">
+                                    <div></div>
+                                    <div></div>
+                                    <p style="font-size: 20px; margin-left: 800px " class="fw-bold mt-4">Tổng tiền:</p>
+                                    <p style="font-size: 20px; margin-left: 60px" class="mt-4"> 1.000.000 VNĐ</p>
+                                </div>
+                            </div>
+                        </div>
+                               
+                                                 
+                                
+                            
+                        
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <footer class="footer d-flex flex-wrap  align-items-center">
+            <div class="foot"></div>
+            <span class="okono ms-4">© 2024 Okono.</span>
+            <div class="social mt-3">
+                <ul class=" d-flex">
+                    <li>
+                        <i class="fa-solid fa-globe mx-2"></i>
+                        <a class="text-white " href="#">Tiếng Việt</a>
+                    </li>
+                    <li class="mx-3">
+                        <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li class="me-3">
+                        <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                    </li>
+                </ul>
+            </div>
+    
+        </footer>
+    
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const selectImageBtn = document.querySelector('.select-image');
+                const imageUploadInput = document.getElementById('imageUpload');
+                const uploadedImage = document.getElementById('uploadedImage');
+                const placeholderText = document.querySelector('.text');
+        
+                selectImageBtn.addEventListener('click', function() {
+                    imageUploadInput.click(); // Trigger click event on file input when button is clicked
+                });
+        
+                imageUploadInput.addEventListener('change', function(event) {
+                    if (event.target.files && event.target.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function() {
+                            uploadedImage.src = reader.result;
+                            uploadedImage.style.display = 'block';
+                            placeholderText.style.display = 'none';
+                        }
+                        reader.readAsDataURL(event.target.files[0]);
+                    } else {
+                        uploadedImage.style.display = 'none';
+                        placeholderText.style.display = 'block';
+                    }
+                });
+            });
+        </script>
+        <script>
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                var myDiv = document.getElementById('myDiv');
+                if (myDiv.style.width === '1440px') {
+                    myDiv.style.width = '1250px';
+                    myDiv.style.marginRight = '48px';
+                } else {
+                    myDiv.style.width = '1440px';
+                    myDiv.style.marginRight = '0px'; // Bạn có thể thay đổi giá trị này theo ý muốn
+                }
+            });
+            
+        </script>   
+        <script>
+            document.getElementById('increase').addEventListener('click', function () {
+                var quantityInput = document.getElementById('soLuong');
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+        
+            document.getElementById('decrease').addEventListener('click', function () {
+                var quantityInput = document.getElementById('soLuong');
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+        </script>
+
+        <!-- VAlidate -->
+        <script>
+            function validateForm() {
+            // Clear previous error messages
+            
+            var frm = document.forms["addProductForm"];
+            // Get form elements
+            var productName = frm["productName"].value;
+            var category = frm["category"].value;
+            var description = frm["moTa"].value;
+            var donGia = frm["donGia"].value;
+            var imageUpload = frm["imageUpload"].files[0];
+            
+            
+            var check = false;
+                      // Validate product name
+            if (productName.trim() === "") {
+                document.getElementById("productNameError").innerText = "Tên sản phẩm không được bỏ trống";
+                check =  false;
+            }
+            else{
+                document.getElementById("productNameError").innerText = "";
+            }
+            // Validate category
+            if (category === "Chọn danh mục") {
+                document.getElementById("categoryError").innerText = "Vui lòng chọn danh mục";
+                check =  false;
+            }
+            else{
+                document.getElementById("categoryError").innerText = "";
+            }
+            if (description.trim() === "") {
+                document.getElementById("descriptionError").innerText = "Mô tả không được bỏ trống";
+                check =  false;
+            }
+            else{
+                document.getElementById("descriptionError").innerText = "";
+            }
+            
+            if (donGia.trim() === "") {
+                document.getElementById("priceError").innerText = "Giá không được bỏ trống";
+                check =  false;
+            }
+            else{
+                if ( isNaN(donGia))   {
+                document.getElementById("priceError").innerText = "Đơn giá chỉ được nhập số";
+                check =  false;
+                }
+                else{
+                    document.getElementById("priceError").innerText = "";
+                }
+            }
+            if (!imageUpload) {
+                document.getElementById("imageError").innerText = "Vui lòng chọn ảnh";
+                check = false;
+            }
+            else{
+                document.getElementById("imageError").innerText = "";
+            }
+            if(donGia.trim() !== "" && category !== "Chọn danh mục" && productName.trim() !== "" && description.trim() !== "" && imageUpload && !isNaN(donGia))
+            {
+                check = true;
+            }
+            return check;
+     
+        }
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // Lấy giá trị từ form
+                var productName = document.getElementById('productName').value;
+                var category = document.getElementById('category').value;
+                var soLuong = document.getElementById('soLuong').value;
+                var donGia = document.getElementById('donGia').value;
+                donGia = formatNumber(donGia);
+                // Tạo object sản phẩm mới
+                var newProduct = {
+                    name: productName,
+                    category: category,
+                    quantity: soLuong,
+                    price: donGia
+                };
+
+                // Lưu sản phẩm vào localStorage
+                var products = JSON.parse(localStorage.getItem('products')) || [];
+                products.push(newProduct);
+                localStorage.setItem('products', JSON.stringify(products));
+                localStorage.setItem('action', 'add');
+                // Hiển thị modal popup
+                var modal = document.getElementById('successModal');
+                var span = document.getElementsByClassName('close')[0];
+                var okButton = document.getElementById('okButton');
+
+                modal.style.display = 'block';
+
+                // Khi người dùng bấm nút 'OK' hoặc 'Close'
+                span.onclick = function() {
+                    modal.style.display = 'none';
+                    window.location.href = 'quanlysanpham.html';
+                }
+
+                okButton.onclick = function() {
+                    modal.style.display = 'none';
+                    window.location.href = 'quanlysanpham.html';
+                }
+
+                // Khi người dùng bấm ra ngoài modal
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                        window.location.href = 'quanlysanpham.html';
+                    }
+                }
+            }
+            else{
+                // Hiển thị modal popup lỗi
+                var errorModal = document.getElementById('errorModal');
+                var closeError = errorModal.getElementsByClassName('close')[0];
+                var closeButton = document.getElementById('closeButton');
+                var retryButton = document.getElementById('retryButton');
+
+                errorModal.style.display = 'block';
+
+                // Khi người dùng bấm nút 'Close' hoặc 'Quay lại' trong modal lỗi
+                closeError.onclick = function() {
+                    errorModal.style.display = 'none';
+                }
+
+                
+                retryButton.onclick = function() {
+                    errorModal.style.display = 'none';
+                }
+
+                // Khi người dùng bấm ra ngoài modal lỗi
+                window.onclick = function(event) {
+                    if (event.target == errorModal) {
+                        errorModal.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+          </script>
+        
+     </body>
+</html>

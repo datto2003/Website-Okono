@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Quản lý sản phẩm</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/ãcff.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        
+    </head>
+    <style>
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+        .bg-navbar{
+            background: #DC0D15;
+        }
+        
+        .page-link:focus {
+            border-color: black;
+            color: black;
+            outline: none;
+            box-shadow: none;
+            background-color: #CEC8C8;
+        }
+        .page-link:hover {
+            border-color: black;
+            color: black;
+            outline: none;
+            box-shadow: none;
+            background-color: #CEC8C8;
+        }
+        .page-item.active .page-link {
+           background-color: #CEC8C8;
+            border-color: black;
+            color:black;
+        }
+        .page-link{
+            border-color: black;
+            color: black;
+            font-size: 20px;
+            border-radius: 0!important;
+        }
+        .ps_4 {
+            padding-left: 1.5rem;
+        }
+        .pt_1 {
+            padding-top: 0.25rem ;
+        }
+        .ms_2 {
+            margin-left: 0.5rem ;
+        }
+        .modal {
+        display: none; /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* padding: 20px; */
+        padding-top: 10px;
+        border: 1px solid #888;
+        width: 430px;
+        height: 220px;
+        }
+
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        padding-bottom: 6px;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+       
+
+        .modal-title{
+            padding-bottom: 6px;
+        }
+        
+
+
+        
+      
+    </style>
+    <body>
+        
+        <div class=" d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div style="width: 280px;" id="sidebar-wrapper" >
+                <div class="sidebar-heading border-0 bg-navbar d-flex align-items-center py-4" style="height: 75px; padding-left: 30px;">
+                    <a href="/TrangChu.html"><img src="/ãcff.png" alt="" style="height: 67px;"></a>
+                </div>
+                <hr style="height: 5px; color: #EE8C01; border: none;" class="my-1">
+                <div class="list-group list-group-flush border-0" style="margin-top: 40px;">
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 "  href="/TrangChu.html">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/home.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px; cursor: pointer;">
+                                Trang chủ
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/customer.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Quản lý khách hàng
+                            </div>
+                        </div>
+                    </a>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/product.svg" alt="" style="height: 40px; width: 40px;">
+                            <div  style="font-size: 18px; padding-left: 5px;  font-weight: bold; color:#DC0D15;">
+                                Quản lý sản phẩm
+                            </div>
+                        </div>
+                    </a>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="/QuanLyDonHang.html">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/bill.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px; ">
+                                Quản lý đơn hàng
+                            </div>
+                        </div>
+                    </a>                       
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/kho.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Quản lý kho hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/bd.svg " alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Thống kê doanh thu
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-navbar" style="height: 75px; width: 100%;">
+                    <div class="container-fluid ">
+                        <button class="btn text-light" id="sidebarToggle">
+                            <i class="fas fa-bars" style="font-size: 30px;"></i>
+                        </button>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="text-light text-decoration-none pt-2"> 
+                                <div class="d-flex align-items-center">
+                                    <p>Xin chào,</p>
+                                    <p style="font-weight: bold; margin-left: 5px;">Admin</p>
+                                </div>
+                                
+                            </a>
+                            <img src="/image/avt.svg" alt="" style="height: 40px; width: 35px; margin-left: 15px; margin-right: 20px;">
+
+                        </div>
+                    </div>
+                </nav>
+                <hr style="height: 5px; color: #EE8C01; border: none;" class="my-1">
+
+
+                
+                <!-- Code nội dung ở đây-->
+                <div class="main-content p-0 pt-3 mt-1 mb-1 border-0" style="height: 650px;">
+                    <div class="d-flex">
+                        <div>
+                            <div class="d-flex">
+                                <img src="/image/product.svg" alt="" style="height: 40px; width: 40px;">
+                                <h3 class="ms-1" >Quản lý sản phẩm</h3>
+                            </div>
+                            <p class="ms-5">Xem, cập nhật, xóa và quản lý</p>
+                        </div>
+                        <a class="text-decoration-none" href="/ThemSanPham.html" style="height: 50px;">
+                            <div style="padding-left: 880px; padding-top: 15px;" id="btnAdd">
+                                <button type="button" class="btn text-light " style="background-color: #DC0D15; border-color: black; border-width: 2px;" >+ Thêm</button>
+                            </div>
+                        </a>
+                    </div>
+    
+                    
+                        <div class="me-5 rphone ripad padding__phone ms-2" style="border: #CEC8C8 solid; width: 1250px;" id="myDiv">
+                            
+                            <table class="table table-striped" id="productTable">
+                                <thead>
+                                    <tr class="ms-3 m__phone">
+                                        <th scope="col" class="ps_5 text__phone">Danh mục </th>
+                                        <th scope="col" style="width: 40%;">Tên sản phẩm</th>
+                                        <th scope="col" class="text-center ps-5">Đơn giá</th>
+                                        <th scope="col" class="text-center">Số lượng</th>
+                                        <th scope="col" style="padding-left: 35px;">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productList">
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa trân châu đường đen</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">30.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory" >Thực phẩm</th>
+                                        <td class="custom__padding__top" id="productName">Gạo ST25</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">300.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;"><a href="#">
+                                                <img src="/image/xem.svg" alt=""  style="height: 25px; width: 25px;">
+                                            </a></button>
+                                             <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;"onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt=""  style="height: 25px; width: 25px; ">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Hamburger</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">50.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">200</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ uống</th>
+                                        <td class="custom__padding__top productName">Trà sữa MayCha</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">60.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ gia dụng</th>
+                                        <td class="custom__padding__top productName">Nồi cơm điện</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">600.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">100</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">Đồ ăn nhanh</th>
+                                        <td class="custom__padding__top productName">Bánh Donnut</td>
+                                        <td class="custom__padding__top text-end pe-5 productPrice">20.000 VNĐ</td>
+                                        <td class="custom__padding__top text-end pe-5 productQuantity">1000</td>
+                                        <td class="d-flex custom__padding__top">
+                                            <button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">
+                                                <a href="/XemSanPham.html">
+                                                    <img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">
+                                                </a>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">
+                                                <img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">
+                                                <img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                           
+                            <!-- button xóa hết dữ liệu -->
+                            <!-- <button id="clearStorage" class="btn btn-danger mb-3">Xóa toàn bộ dữ liệu</button> -->
+                            <div class="pagination pagination__phone" style="justify-content: center; margin-top: 25px;">
+                                <nav aria-label="Page navigation example">
+                                    <!-- <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="/QuanLySanPhamPage3.html" aria-label="Previous">
+                                                <span aria-hidden="true">&lt;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="/QuanLySanPhamPage2.html">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="/QuanLySanPhamPage3.html">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/QuanLySanPhamPage2.html" aria-label="Next">
+                                                <span aria-hidden="true">&gt;</span>
+                                            </a>
+                                        </li>
+                                    </ul> -->
+                                    <ul class="pagination" id="pagination">
+                                        <!-- Pagination links will be dynamically added here -->
+                                    </ul>
+                                </nav>
+                                
+                            </div>
+                             <!-- Modal Popup Xác Nhận Xóa -->
+                              
+                             <div id="confirmDeleteModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="modal-header d-flex align-items-center justify-content-between" style="height: 30px;">
+                                        <div></div>
+                                        <p class="modal-title fw-bold ms-3" style="font-size: 22px;">Thông báo</p>
+                                        <span class="close text-dark" onclick="closeModal('confirmDeleteModal')">&times;</span>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-center">
+                                        <img src="/image/dauhoi.svg " alt="" style="height: 60px; width: 60px;">
+                                        <p style="font-size: 22px; ">Bạn có chắc chắn muốn xóa?</p>
+                                        <div class="d-flex justify-content-between mt-1 ms-1 w-100" >
+                                            <button id="confirmDeleteButton" class=" bg-light text-dark fw-bold" style="height: 40px; width: 110px; border-radius: 5px; margin-left: 80px; ">Có</button>
+                                            <div></div>
+                                            <button id="cancelDeleteButton" onclick="closeModal('confirmDeleteModal')" class=" bg-light text-dark fw-bold" style="height: 40px; width: 110px; border-radius: 5px; margin-right: 92px;">Không</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <!-- Modal Popup Xóa Thành Công -->
+                            <div id="successDeleteModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="modal-header d-flex align-items-center justify-content-between" style="height: 30px;">
+                                        <div></div>
+                                        <p class="modal-title fw-bold ms-3" style="font-size: 22px;">Thông báo</p>
+                                        <span class="close" onclick="closeModal('successDeleteModal')">&times;</span>
+                                    </div>
+
+                                    <div class="d-flex flex-column align-items-center">
+                                        <img src="/image/success.svg " alt="" style="height: 60px; width: 60px;">
+                                        <p style="font-size: 22px; ">Xóa thành công</p>
+                                        <button id="okDeleteButton" onclick="closeModal('successDeleteModal')" class="mt-1 bg-light text-dark fw-bold" style="height: 40px; width: 60px; border-radius: 5px;">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <footer class="footer d-flex flex-wrap  align-items-center">
+            <div class="foot"></div>
+            <span class="okono ms-4">© 2024 Okono.</span>
+            <div class="social mt-3">
+                <ul class=" d-flex">
+                    <li>
+                        <i class="fa-solid fa-globe mx-2"></i>
+                        <a class="text-white " href="#">Tiếng Việt</a>
+                    </li>
+                    <li class="mx-3">
+                        <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li class="me-3">
+                        <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                    </li>
+                </ul>
+            </div>
+    
+        </footer>
+    
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <script>
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                var myDiv = document.getElementById('myDiv');
+                var btnAdd = document.getElementById('btnAdd');
+    
+                if (myDiv.style.width === '1440px') {
+                    myDiv.style.width = '1250px';
+                    myDiv.style.marginRight = '48px';
+                    btnAdd.style.paddingLeft = '880px'; // Điều chỉnh giá trị này theo ý muốn khi chiều rộng là 1250px
+                } else {
+                    myDiv.style.width = '1440px';
+                    myDiv.style.marginRight = '0px';
+                    btnAdd.style.paddingLeft = '1060px'; // Điều chỉnh giá trị này theo ý muốn khi chiều rộng là 1440px
+                }
+            });
+        </script>
+        <!-- Core theme JS-->
+        <script>
+            function editProduct(button) {
+                // Lấy dòng sản phẩm cha của nút Sửa được nhấn
+                var productRow = button.closest('tr');
+        
+                // Lấy thông tin sản phẩm từ các ô dữ liệu trong dòng sản phẩm
+                var productName = productRow.querySelector('.productName').textContent.trim();
+                var productPrice = productRow.querySelector('.productPrice').textContent.trim();
+                productPrice = formatNumber1(productPrice);
+                var productQuantity = productRow.querySelector('.productQuantity').textContent.trim();
+                var productCategory = productRow.querySelector('.productCategoryEdit').textContent.trim(); // Lấy category
+                var productDescription = "Chuẩn bị ra mắt";
+                // Lưu thông tin sản phẩm vào localStorage
+                localStorage.setItem('currentProduct', JSON.stringify({
+                    name: productName,
+                    price: productPrice,
+                    quantity: productQuantity,
+                    category: productCategory, // Lưu thêm category
+                    description: productDescription
+                }));
+                // Lưu trạng thái là 'edit' và lưu chỉ mục sản phẩm
+                var index = Array.from(productRow.parentNode.children).indexOf(productRow);
+                localStorage.setItem('currentProductIndex', index);
+                localStorage.setItem('action', 'edit');
+                // Chuyển hướng đến trang Sửa sản phẩm
+                window.location.href = 'SuaSanPham.html';
+            }
+        </script>
+        
+        
+        <!--  -->
+        <script>
+            let rowToDelete;
+
+            function deleteRow(button) {
+                rowToDelete = button.closest('tr');
+                showModal('confirmDeleteModal');
+            }
+
+            function showModal(modalId) {
+                document.getElementById(modalId).style.display = 'block';
+            }
+
+            function closeModal(modalId) {
+                document.getElementById(modalId).style.display = 'none';
+            }
+
+            document.getElementById('confirmDeleteButton').addEventListener('click', function() {
+                if (rowToDelete) {
+                    rowToDelete.remove();
+                    rowToDelete = null;
+                    closeModal('confirmDeleteModal');
+                    showModal('successDeleteModal');
+                    
+                }
+            });
+
+            document.getElementById('okDeleteButton').addEventListener('click', function() {
+                closeModal('successDeleteModal');
+                setupPagination();
+            });
+
+
+
+        </script>
+        
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    
+    // Lấy dữ liệu sản phẩm từ localStorage
+    var products = JSON.parse(localStorage.getItem('products')) || [];
+    var action = localStorage.getItem('action');
+    // Hiển thị danh sách sản phẩm
+    var productList = document.getElementById('productList');
+
+    if(action === "add"){
+        // Xóa dòng cuối cùng nếu có nhiều hơn 1 dòng
+        productList.removeChild(productList.lastChild);
+        // Thêm từng sản phẩm vào table
+        products.forEach(function(product) {
+            var row = '<tr>' +
+                '<th scope="row" class="ps-5 custom__padding__top productCategoryEdit" id="productCategory">' + product.category + '</th>' +
+                '<td class="custom__padding__top productName">' + product.name + '</td>' +
+                '<td class="custom__padding__top text-end pe-5 productPrice">' + product.price + ' VNĐ</td>' +
+                '<td class="custom__padding__top text-end pe-5 productQuantity">' + product.quantity + '</td>' +
+                '<td class="d-flex custom__padding__top">' +
+                '<button class="btn btn-sm btn-primary me-2" style="background-color: transparent!important; border: none;">' +
+                '<a href="/XemSanPham.html">' +
+                '<img src="/image/xem.svg" alt="" style="height: 25px; width: 25px;">' +
+                '</a></button>' +
+                '<button class="btn btn-sm btn-secondary me-2" style="background-color: transparent!important; border: none;" onclick="editProduct(this)">' +
+                '<img src="/image/sua.svg" alt="" style="height: 25px; width: 25px;">' +
+                '</button>' +
+                '<button class="btn btn-sm btn-secondary" style="background-color: transparent!important; border: none;" onclick="deleteRow(this)">' +
+                '<img src="/image/xoa.svg" alt="" style="height: 25px; width: 25px;">' +
+                '</button>' +
+                '</td>' +
+                '</tr>';
+                    
+                    
+                    
+        // Thêm vào danh sách ở đầu bảng
+        productList.innerHTML = row + productList.innerHTML;
+        });
+    }
+    else if (action === 'edit') {
+            var currentProductIndex = localStorage.getItem('currentProductIndex');
+            var productRow = productList.rows[currentProductIndex];
+
+            var updatedProduct = products[currentProductIndex];
+            productRow.cells[0].innerHTML = updatedProduct.category;
+            productRow.cells[1].innerHTML = updatedProduct.name;
+            productRow.cells[2].innerHTML = updatedProduct.price + ' VNĐ';
+            productRow.cells[3].innerHTML = updatedProduct.quantity;
+                        // Thêm từng sản phẩm vào table
+            
+    }
+        // Xóa hành động sau khi đã sử dụng
+        localStorage.removeItem('action');
+  </script>   
+    <script>
+        function formatNumber1(num) {
+        return num.toString().replace(/\./g, "");
+    }
+    </script>
+  <script>
+    document.getElementById('clearStorage').addEventListener('click', function() {
+      localStorage.clear();
+      // Xóa toàn bộ nội dung bảng
+      productList.innerHTML = '';
+      // Hiển thị thông báo hoặc thực hiện các hành động khác
+      alert('Dữ liệu đã được xóa!');
+    });
+  </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const table = document.getElementById('productTable');
+        const rowsPerPage = 7; // Số dòng trên mỗi trang
+        let currentPage = 1; // Trang hiện tại
+
+        function displayRows(page) {
+            const tbody = table.querySelector('tbody');
+            if (tbody) {
+                const rows = tbody.getElementsByTagName('tr');
+                const totalRows = rows.length;
+                const startIndex = (page - 1) * rowsPerPage;
+                const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
+
+                for (let i = 0; i < totalRows; i++) {
+                    if (i >= startIndex && i < endIndex) {
+                        rows[i].style.display = 'table-row';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            } else {
+                console.error('Không tìm thấy phần tử tbody của bảng.');
+            }
+        }
+
+        function setupPagination() {
+            const pagination = document.getElementById('pagination');
+            const tbody = table.querySelector('tbody');
+            const totalRows = tbody ? tbody.getElementsByTagName('tr').length : 0;
+            const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+            pagination.innerHTML = ''; // Xóa các nút phân trang cũ (nếu có)
+
+            // Nút Previous
+            const prevButton = document.createElement('li');
+            const prevLink = document.createElement('a');
+            prevLink.href = '#';
+            prevLink.textContent = '<';
+            prevButton.appendChild(prevLink);
+            pagination.appendChild(prevButton);
+
+            prevLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    updatePagination();
+                    displayRows(currentPage);
+                }
+            });
+
+            // Các nút trang
+            const maxVisiblePages = 5; // Số lượng trang hiển thị tối đa
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            // Hiển thị "..." ở đầu nếu cần
+            if (startPage > 1) {
+                const startEllipsis = document.createElement('li');
+                const startEllipsisLink = document.createElement('a');
+                startEllipsisLink.href = '#';
+                startEllipsisLink.textContent = '...';
+                startEllipsis.appendChild(startEllipsisLink);
+                pagination.appendChild(startEllipsis);
+
+                startEllipsisLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    currentPage = startPage - 1;
+                    updatePagination();
+                    displayRows(currentPage);
+                });
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#';
+                link.textContent = i;
+
+                if (i === currentPage) {
+                    link.classList.add('active');
+                }
+
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    currentPage = i;
+                    updatePagination();
+                    displayRows(currentPage);
+                });
+
+                li.appendChild(link);
+                pagination.appendChild(li);
+            }
+
+            // Hiển thị "..." ở cuối nếu cần
+            if (endPage < totalPages) {
+                const endEllipsis = document.createElement('li');
+                const endEllipsisLink = document.createElement('a');
+                endEllipsisLink.href = '#';
+                endEllipsisLink.textContent = '...';
+                endEllipsis.appendChild(endEllipsisLink);
+                pagination.appendChild(endEllipsis);
+
+                endEllipsisLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    currentPage = endPage + 1;
+                    updatePagination();
+                    displayRows(currentPage);
+                });
+            }
+
+            // Nút Next
+            const nextButton = document.createElement('li');
+            const nextLink = document.createElement('a');
+            nextLink.href = '#';
+            nextLink.textContent = '>';
+            nextButton.appendChild(nextLink);
+            pagination.appendChild(nextButton);
+
+            nextLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updatePagination();
+                    displayRows(currentPage);
+                }
+            });
+
+            function updatePagination() {
+                const links = pagination.getElementsByTagName('a');
+                const currentMiddlePage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+                startPage = currentMiddlePage;
+                endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+                pagination.innerHTML = ''; // Xóa các nút phân trang cũ
+
+                // Nút Previous
+                const prevButton = document.createElement('li');
+                const prevLink = document.createElement('a');
+                prevLink.href = '#';
+                prevLink.textContent = '<';
+                prevButton.appendChild(prevLink);
+                pagination.appendChild(prevButton);
+
+                prevLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (currentPage > 1) {
+                        currentPage--;
+                        updatePagination();
+                        displayRows(currentPage);
+                    }
+                });
+
+                // Hiển thị "..." ở đầu nếu cần
+                if (startPage > 1) {
+                    const startEllipsis = document.createElement('li');
+                    const startEllipsisLink = document.createElement('a');
+                    startEllipsisLink.href = '#';
+                    startEllipsisLink.textContent = '...';
+                    startEllipsis.appendChild(startEllipsisLink);
+                    pagination.appendChild(startEllipsis);
+
+                    startEllipsisLink.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        currentPage = startPage - 1;
+                        updatePagination();
+                        displayRows(currentPage);
+                    });
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    const li = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.textContent = i;
+
+                    if (i === currentPage) {
+                        link.classList.add('active');
+                    }
+
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        currentPage = i;
+                        updatePagination();
+                        displayRows(currentPage);
+                    });
+
+                    li.appendChild(link);
+                    pagination.appendChild(li);
+                }
+
+                // Hiển thị "..." ở cuối nếu cần
+                if (endPage < totalPages) {
+                    const endEllipsis = document.createElement('li');
+                    const endEllipsisLink = document.createElement('a');
+                    endEllipsisLink.href = '#';
+                    endEllipsisLink.textContent = '...';
+                    endEllipsis.appendChild(endEllipsisLink);
+                    pagination.appendChild(endEllipsis);
+
+                    endEllipsisLink.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        currentPage = endPage + 1;
+                        updatePagination();
+                        displayRows(currentPage);
+                    });
+                }
+
+                // Nút Next
+                const nextButton = document.createElement('li');
+                const nextLink = document.createElement('a');
+                nextLink.href = '#';
+                nextLink.textContent = '>';
+                nextButton.appendChild(nextLink);
+                pagination.appendChild(nextButton);
+
+                nextLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        updatePagination();
+                        displayRows(currentPage);
+                    }
+                });
+
+                const prevEllipsis = document.createElement('li');
+                const prevEllipsisLink = document.createElement('a');
+                prevEllipsisLink.href = '#';
+                prevEllipsisLink.textContent = 'Trang cuối';
+                // prevEllipsis.appendChild(prevEllipsisLink);
+                pagination.appendChild(prevEllipsis);
+
+                prevEllipsisLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    currentPage = startPage - 1;
+                    updatePagination();
+                    displayRows(currentPage);
+                });
+            }
+
+            // Gọi để hiển thị trang đầu tiên ban đầu
+            displayRows(currentPage);
+            updatePagination();
+        }
+
+        setupPagination();
+    });
+</script>
+
+
+    </body>
+</html>

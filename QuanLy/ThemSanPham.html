@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Thêm sản phẩm</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/ãcff.png" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+        .bg-navbar{
+            background: #DC0D15;
+        }
+        
+        .page-link:focus {
+            border-color: black;
+            color: black;
+            outline: none;
+            box-shadow: none;
+            background-color: #CEC8C8;
+        }
+        .page-link:hover {
+            border-color: black;
+            color: black;
+            outline: none;
+            box-shadow: none;
+            background-color: #CEC8C8;
+        }
+        .page-item.active .page-link {
+           background-color: #CEC8C8;
+            border-color: black;
+            color:black;
+        }
+        .page-link{
+            border-color: black;
+            color: black;
+            font-size: 20px;
+            border-radius: 0!important;
+        }
+        .ps_4 {
+            padding-left: 1.5rem;
+        }
+        .pt_1 {
+            padding-top: 0.25rem ;
+        }
+        .ms_2 {
+            margin-left: 0.5rem ;
+        }
+        
+        .modal {
+        display: none; /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* padding: 20px; */
+        padding-top: 10px;
+        border: 1px solid #888;
+        width: 430px;
+        height: 220px;
+        }
+
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        padding-bottom: 6px;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+       
+
+        .modal-title{
+            padding-bottom: 6px;
+        }
+
+        button {
+        margin-top: 10px;
+        }
+        
+      
+    </style>
+    <body>
+        
+        <div class=" d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div style="width: 280px;" id="sidebar-wrapper" >
+                <div class="sidebar-heading border-0 bg-navbar d-flex align-items-center py-4" style="height: 75px; padding-left: 30px;">
+                    <a href="/TrangChu.html"><img src="/ãcff.png" alt="" style="height: 67px;"></a>
+                </div>
+                <hr style="height: 5px; color: #EE8C01; border: none;" class="my-1">
+                <div class="list-group list-group-flush border-0" style="margin-top: 40px;">
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 "  href="/TrangChu.html">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/home.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px; cursor: pointer;">
+                                Trang chủ
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/customer.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Quản lý khách hàng
+                            </div>
+                        </div>
+                    </a>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="/QuanLySanPham.html">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/product.svg" alt="" style="height: 40px; width: 40px;">
+                            <div  style="font-size: 18px; padding-left: 5px;  font-weight: bold; color:#DC0D15;">
+                                Quản lý sản phẩm
+                            </div>
+                        </div>
+                    </a>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="/QuanLyDonHang.html">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/bill.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px; ">
+                                Quản lý đơn hàng
+                            </div>
+                        </div>
+                    </a>                       
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/kho.svg" alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Quản lý kho hàng
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light py-3 border-0 mt-3"  href="#!">
+                        <div class="d-flex align-items-center ms-1" style="width: 280px;">
+                            <img src="/image/bd.svg " alt="" style="height: 40px; width: 40px;">
+                            <div class="text-dark" style="font-size: 18px; padding-left: 5px;">
+                                Thống kê doanh thu
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-navbar" style="height: 75px; width: 100%;">
+                    <div class="container-fluid ">
+                        <button class="btn text-light" id="sidebarToggle">
+                            <i class="fas fa-bars" style="font-size: 30px;"></i>
+                        </button>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="text-light text-decoration-none pt-2"> 
+                                <div class="d-flex align-items-center">
+                                    <p>Xin chào,</p>
+                                    <p style="font-weight: bold; margin-left: 5px;">Admin</p>
+                                </div>
+                                
+                            </a>
+                            <img src="/image/avt.svg" alt="" style="height: 40px; width: 35px; margin-left: 15px; margin-right: 20px;">
+
+                        </div>
+                    </div>
+                </nav>
+                <hr style="height: 5px; color: #EE8C01; border: none;" class="my-1">
+
+
+                
+                <!-- Code nội dung ở đây-->
+                <div class="main-content p-0 pt-3 mt-1 mb-1 border-0" style="height: 650px;">
+                    <div class="d-flex">
+                        <a class="text-decoration-none" href="/QuanLySanPham.html"><img src="/image/back.svg" alt="" style="height: 25px; width: 40px; margin-top: 8px;"></a>
+                        <h3 class="ms-1" style="font-weight: bold;">Thêm sản phẩm</h3>
+                    </div>
+    
+                    
+                        <div class="me-5 rphone ripad padding__phone ms-2" style="border: #CEC8C8 solid; width: 1250px; height: 590px" id="myDiv">
+                            
+                                <form id="addProductForm" class="d-flex" style="margin-top: 10px; margin-left: 105px;" >
+                                    <div>
+                                        <div class="mt-4">
+                                            <label for="productName" style="font-weight: bold;">Tên sản phẩm:</label>
+                                            <input type="text" id="productName" name="productName"  style="width: 400px; margin-left: 30px; height: 40px;">
+                                            
+                                        </div>
+                                        <span id="productNameError" class="error" style="margin-left: 140px;"></span>
+                                        
+                                        <div class="d-flex align-items-center mt-3">
+                                            <label for="category" class="fw-bold">Danh mục:</label>
+                                            <select class="form-select ps-2" id="category" aria-label="Chọn danh mục" style="width: 400px; height: 40px; margin-left: 61px;">
+                                                <option selected>Chọn danh mục</option>
+                                                <option value="Thực phẩm">Thực phẩm</option>
+                                                <option value="Đồ uống">Đồ uống</option>
+                                                <option value="Đồ ăn nhanh">Đồ ăn nhanh</option>
+                                                <option value="Đồ gia dụng">Đồ gia dụng</option>
+                                            </select>
+                                        </div>
+                                        <span id="categoryError" class="error" style="margin-left: 140px;"></span>
+                                        
+                                        <div class="d-flex mt-3">
+                                            <label for="moTa" class="fw-bold">Mô tả:</label>
+                                            <textarea class="form-control" id="moTa" rows="6" style="width: 400px; margin-left: 91px"></textarea>
+                                        </div>
+                                        <span id="descriptionError" class="error" style="margin-left: 140px;"></span>
+                                        <div class="mt-1 d-flex" >
+                                            <label for="soLuong" class="fw-bold">Số lượng:</label>
+                                            <div style="margin-left: 70px;" class="d-flex align-items-center">
+                                                <button type="button" id="decrease"  style="height: 25px; width: 25px;" class="text-center me-2">-</button>
+                                                <input type="text" id="soLuong" value="1" min="1" class="text-center" style="width: 70px; margin-top: 10px;">
+                                                <button type="button" id="increase" style="height: 25px; width: 25px;" class="text-center ms-2">+</button>
+                                            </div>
+                                            
+                                        </div>
+                                        <span id="quantityError" class="error" style="margin-left: 140px;"></span>
+                                        
+                                        <div class="mt-2">
+                                            <label for="donGia" class="fw-bold">Đơn giá:</label>
+                                            <input type="text" id="donGia" name="donGia"  style="width: 400px; margin-left: 75px; height: 40px;">
+                                        </div>
+                                        <span id="priceError" class="error" style="margin-left: 140px;"></span>
+                                        <div class="d-flex mt-1" style="width: 400px; margin-left: 140px;">
+                                            <button type="button" id="quitBtn" class="fw-bold text-dark bg-light" style="width: 100px; height: 40px; border-radius: 5px;">Thoát</button>
+                                            <button type="submit" class="fw-bold" style="width: 100px; margin-left: 40px;  border-radius: 5px; border-color: black; background-color: #DC0D15; color: white;">Xong</button>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 25px; margin-left: 100px; " class="d-flex flex-column align-items-center">
+                                        <div class="image-upload-container" style="background-color: #D9D9D9; border-color: black; width: 400px; height: 340px; border-radius: 10px;">
+                                            <p class="text text-center" style="color: #828282;">Ảnh sản phẩm</p>
+                                            <img id="uploadedImage" src="#" alt="Ảnh sản phẩm">
+                                        </div>
+                                        <button type="button" class="select-image ms-3 mt-5 bg-light" style="border-radius: 5px;" >Chọn ảnh</button>
+                                        <input style="margin-left: 0px; overflow: hidden;" type="file" id="imageUpload" class="hidden-input" accept="image/*">
+                                        <span id="imageError" class="error" style="margin-left: 20px;"></span>
+                                    </div>
+                                    
+                                </form>
+                                
+                                <!--  -->
+                                <!-- Modal Popup -->
+                                <div id="successModal" class="modal">
+                                    <div class="modal-content">
+                                        <div class="modal-header d-flex justify-content-between" style="height: 30px;">
+                                            <div></div>
+                                            <p class="modal-title fw-bold ms-3" style="font-size: 22px;">Thông báo</p>
+                                            <span class="close text-dark">&times;</span>
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <img src="/image/success.svg " alt="" style="height: 60px; width: 60px;">
+                                            <p style="font-size: 22px; ">Thêm sản phẩm thành công</p>
+                                            <button id="okButton" class="mt-3 bg-light text-dark fw-bold" style="height: 40px; width: 60px; border-radius: 5px;">OK</button>
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                                  
+                                <!-- Modal Popup fail -->
+                                <div id="errorModal" class="modal">
+                                    <div class="modal-content">
+                                        <div class="modal-header d-flex justify-content-between" style="height: 30px;">
+                                            <div></div>
+                                            <p class="modal-title fw-bold ms-3 d-flex justify-content-center" style="font-size: 22px;">Thông báo</p>
+                                            <span class="close text-dark">&times;</span>
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <img src="/image/error.svg " alt="" style="height: 60px; width: 60px;">
+                                            <p style="font-size: 22px; ">Thêm sản phẩm không thành công</p>
+                                            <button id="retryButton" class="mt-1  bg-light text-dark fw-bold" style="height: 40px; border-radius: 5px;">Quay lại</button>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>                                  
+                                
+                            
+                        
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <footer class="footer d-flex flex-wrap  align-items-center">
+            <div class="foot"></div>
+            <span class="okono ms-4">© 2024 Okono.</span>
+            <div class="social mt-3">
+                <ul class=" d-flex">
+                    <li>
+                        <i class="fa-solid fa-globe mx-2"></i>
+                        <a class="text-white " href="#">Tiếng Việt</a>
+                    </li>
+                    <li class="mx-3">
+                        <a class="text-white" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li class="me-3">
+                        <a class="text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a class="text-white" href="#"><i class="fa-brands fa-twitter"></i>
+                    </li>
+                </ul>
+            </div>
+    
+        </footer>
+    
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/fontawesome-free-6.5.2-web/js/fontawesome.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const selectImageBtn = document.querySelector('.select-image');
+                const imageUploadInput = document.getElementById('imageUpload');
+                const uploadedImage = document.getElementById('uploadedImage');
+                const placeholderText = document.querySelector('.text');
+        
+                selectImageBtn.addEventListener('click', function() {
+                    imageUploadInput.click(); // Trigger click event on file input when button is clicked
+                });
+        
+                imageUploadInput.addEventListener('change', function(event) {
+                    if (event.target.files && event.target.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function() {
+                            uploadedImage.src = reader.result;
+                            uploadedImage.style.display = 'block';
+                            placeholderText.style.display = 'none';
+                        }
+                        reader.readAsDataURL(event.target.files[0]);
+                    } else {
+                        uploadedImage.style.display = 'none';
+                        placeholderText.style.display = 'block';
+                    }
+                });
+            });
+        </script>
+        <script>
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                var myDiv = document.getElementById('myDiv');
+                if (myDiv.style.width === '1440px') {
+                    myDiv.style.width = '1250px';
+                    myDiv.style.marginRight = '48px';
+                } else {
+                    myDiv.style.width = '1440px';
+                    myDiv.style.marginRight = '0px'; // Bạn có thể thay đổi giá trị này theo ý muốn
+                }
+            });
+            
+        </script>   
+        <script>
+            document.getElementById('increase').addEventListener('click', function () {
+                var quantityInput = document.getElementById('soLuong');
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+        
+            document.getElementById('decrease').addEventListener('click', function () {
+                var quantityInput = document.getElementById('soLuong');
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+        </script>
+        <script>
+            
+            var quitBtn = document.getElementById('quitBtn');
+
+        
+
+            // Khi người dùng bấm nút 'OK' hoặc 'Close'
+            quitBtn.onclick = function() {
+                
+                window.location.href = 'quanlysanpham.html';
+            }
+
+        </script>
+        <!-- VAlidate -->
+        <script>
+            function validateForm() {
+            // Clear previous error messages
+            
+            // Clear previous error messages
+            var frm = document.forms["addProductForm"];
+            // Get form elements
+            var productName = frm["productName"].value;
+            var category = frm["category"].value;
+            var description = frm["moTa"].value;
+            var donGia = frm["donGia"].value;
+            var imageUpload = frm["imageUpload"].files[0];
+            var soLuong = frm["soLuong"].value;
+            var regex = /^\d+$/; 
+            var check = true; // Assume the form is valid unless a check fails
+            
+            // Validate product name
+            if (productName.trim() === "") {
+                document.getElementById("productNameError").innerText = "Tên sản phẩm không được bỏ trống";
+                check = false;
+            } else {
+                document.getElementById("productNameError").innerText = "";
+            }
+            
+            // Validate category
+            if (category === "Chọn danh mục") {
+                document.getElementById("categoryError").innerText = "Vui lòng chọn danh mục";
+                check = false;
+            } else {
+                document.getElementById("categoryError").innerText = "";
+            }
+            
+            // Validate description
+            if (description.trim() === "") {
+                document.getElementById("descriptionError").innerText = "Mô tả không được bỏ trống";
+                check = false;
+            } else {
+                document.getElementById("descriptionError").innerText = "";
+            }
+            
+            // Validate price (donGia)
+            if (donGia.trim() === "") {
+                document.getElementById("priceError").innerText = "Giá không được bỏ trống";
+                check = false;
+            } else {
+                if (isNaN(donGia)) {
+                    document.getElementById("priceError").innerText = "Đơn giá chỉ được nhập số";
+                    check = false;
+                } else {
+                    document.getElementById("priceError").innerText = "";
+                }
+            }
+            
+            // Validate image upload
+            if (!imageUpload) {
+                document.getElementById("imageError").innerText = "Vui lòng chọn ảnh";
+                check = false;
+            } else {
+                document.getElementById("imageError").innerText = "";
+            }
+            
+            // Validate quantity (soLuong)
+            if (soLuong.trim() === "") {
+                document.getElementById("quantityError").innerText = "Số lượng không được bỏ trống";
+                check = false;
+            } else {
+                // Regular expression to match only digits
+                if (!regex.test(soLuong)) {
+                    document.getElementById("quantityError").innerText = "Số lượng chỉ được nhập số";
+                    check = false;
+                } else {
+                    document.getElementById("quantityError").innerText = "";
+                }
+            }
+            if(donGia.trim() !== "" && category !== "Chọn danh mục" && productName.trim() !== "" && description.trim() !== "" && imageUpload && !isNaN(donGia) && regex.test(soLuong) && soLuong.trim() !== "")
+            {
+                check = true;
+            }
+            return check;
+     
+        }
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // Lấy giá trị từ form
+                var productName = document.getElementById('productName').value;
+                var category = document.getElementById('category').value;
+                var soLuong = document.getElementById('soLuong').value;
+                var donGia = document.getElementById('donGia').value;
+                donGia = formatNumber(donGia);
+                // Tạo object sản phẩm mới
+                var newProduct = {
+                    name: productName,
+                    category: category,
+                    quantity: soLuong,
+                    price: donGia
+                };
+
+                // Lưu sản phẩm vào localStorage
+                var products = JSON.parse(localStorage.getItem('products')) || [];
+                products.push(newProduct);
+                localStorage.setItem('products', JSON.stringify(products));
+                localStorage.setItem('action', 'add');
+                // Hiển thị modal popup
+                var modal = document.getElementById('successModal');
+                var span = document.getElementsByClassName('close')[0];
+                var okButton = document.getElementById('okButton');
+
+                modal.style.display = 'block';
+
+                // Khi người dùng bấm nút 'OK' hoặc 'Close'
+                span.onclick = function() {
+                    modal.style.display = 'none';
+                    window.location.href = 'quanlysanpham.html';
+                }
+
+                okButton.onclick = function() {
+                    modal.style.display = 'none';
+                    window.location.href = 'quanlysanpham.html';
+                }
+
+                // Khi người dùng bấm ra ngoài modal
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                        window.location.href = 'quanlysanpham.html';
+                    }
+                }
+            }
+            else{
+                // Hiển thị modal popup lỗi
+                var errorModal = document.getElementById('errorModal');
+                var closeError = errorModal.getElementsByClassName('close')[0];
+                var closeButton = document.getElementById('closeButton');
+                var retryButton = document.getElementById('retryButton');
+
+                errorModal.style.display = 'block';
+
+                // Khi người dùng bấm nút 'Close' hoặc 'Quay lại' trong modal lỗi
+                closeError.onclick = function() {
+                    errorModal.style.display = 'none';
+                }
+
+                
+                retryButton.onclick = function() {
+                    errorModal.style.display = 'none';
+                }
+
+                // Khi người dùng bấm ra ngoài modal lỗi
+                window.onclick = function(event) {
+                    if (event.target == errorModal) {
+                        errorModal.style.display = 'none';
+                    }
+                }
+            }
+        });
+
+          </script>
+        
+     </body>
+</html>
